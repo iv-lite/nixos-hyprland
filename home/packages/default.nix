@@ -23,6 +23,9 @@
     glow # markdown previewer in terminal
     proton-pass
 
+    # media
+    cider
+
     # system tools
     sysstat
     lm_sensors # for `sensors` command
