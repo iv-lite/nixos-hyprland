@@ -18,3 +18,4 @@ done
 # echo "greetd deployed"
 
 sudo nixos-rebuild switch --flake .#nixos-z690
+reboot
