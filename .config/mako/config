@@ -1,0 +1,55 @@
+
+# [ Global Config ]
+# max no of notification in buffer
+max-history=5
+
+# arrange notification ( +/- time or +/- priority )
+sort=+time
+
+# [ BINDING OPTIONS ]
+# Supported values: none, dismiss, dismiss-all, 
+# dismiss-group, invoke-default-action & exec <command>
+
+on-button-left=invoke-default-action
+on-button-middle=dismiss-group
+on-button-right=dismiss
+on-touch=invoke-default-action
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
+
+format=<span color="#93a1a1">(%a)</span> - <b>%s</b>\n%b
+font=monospace 10
+text-alignment=center
+layer=top
+anchor=top-center
+background-color=#2e3440
+width=300
+height=110
+margin=5
+padding=5
+border-size=2
+border-color=#49484C
+border-radius=5
+icons=0
+max-icon-size=64
+default-timeout=10000
+ignore-timeout=1
+actions=1
+history=1
+markup=1
+progress-color=source #337e7e
+
+[urgency=normal]
+border-color=#4A607C
+
+[urgency=high]
+border-color=#9b5d64
+default-timeout=0
+
+[app-name=lightcord]
+border-color=#49484C
+
+[summary~="log-.*"]
+border-color=#829b6c
+
+[app-name=lightcord summary~="(.*(^| )orz|ORZ|sto|STO|otl|OTL( |$).*)"]
+invisible=1
