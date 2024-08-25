@@ -25,7 +25,6 @@
       foot
       blueman
       cliphist
-      solaar
       polkit
       polkit_gnome
       arc-theme
