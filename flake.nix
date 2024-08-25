@@ -16,10 +16,18 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
     };
+
+    solaar = {
+      url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
+      #url = "https://flakehub.com/f/Svenum/Solaar-Flake/0.1.1.tar.gz" # uncomment line for solaar version 1.1.13
+      #url = "github:Svenum/Solaar-Flake/main"; # Uncomment line for latest unstable version
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{
     nixpkgs,
+    solaar,
     home-manager,
     split-monitor-workspaces,
     ...
@@ -36,6 +44,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./system/configuration.nix
+          solaar.nixosModules.default
           ./services
           ./themes/gtk.nix
           ./hyprland/configuration.nix
