@@ -21,6 +21,7 @@
 
     # productivity
     glow # markdown previewer in terminal
+    proton-pass
 
     # system tools
     sysstat
