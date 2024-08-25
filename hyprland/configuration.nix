@@ -16,11 +16,9 @@
       wlogout
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       mako # notification system developed by swaywm maintainer
-      # freetype2
-      # harfbuzz
-      # cairo
-      # pango
-      # libxkbcommon
+      pamixer
+      playerctl
+      brightnessctl
       tofi
       foot
       blueman
