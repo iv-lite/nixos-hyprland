@@ -13,6 +13,29 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  hardware.acpilight.enable = lib.mkDefault true;
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  hardware.opengl.extraPackages = with pkgs; [
+    amdvlk
+  ];
+  # For 32 bit applications 
+  hardware.opengl.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+  ];
+  boot.kernelParams = [
+    "video=HDMI-A-1:1920x1080@144"
+    "video=DP-2:2560x1440@99"
+  ];
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/5bbca373-d0f9-4a3f-90f6-a53e71ba1c8a";
       fsType = "ext4";
