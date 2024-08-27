@@ -30,8 +30,8 @@
   };
   
   boot.kernelParams = [
-    "video=HDMI-A-1:1920x1080@144"
-    "video=DP-2:2560x1440@99"
+    "video=card1-HDMI-A-1:1920x1080@144"
+    "video=card1-DP-2:2560x1440@99"
   ];
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth

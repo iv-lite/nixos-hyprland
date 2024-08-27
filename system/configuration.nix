@@ -98,7 +98,7 @@
   users.users.iv = {
     isNormalUser = true;
     description = "I.V.";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
     #  thunderbird
     ];
