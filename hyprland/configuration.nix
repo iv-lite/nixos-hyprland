@@ -32,7 +32,7 @@
     ];
   };
 
-  services.blueman.enable;
+  services.blueman.enable = true;
 
   programs.hyprland = {
     enable = true;
