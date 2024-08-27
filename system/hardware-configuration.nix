@@ -27,6 +27,9 @@
       driversi686Linux.amdvlk
     ];
   };
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   
   boot.kernelParams = [
     "video=HDMI-A-1:1920x1080@144"

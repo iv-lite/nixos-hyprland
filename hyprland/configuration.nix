@@ -21,7 +21,6 @@
       brightnessctl
       tofi
       foot
-      blueman
       cliphist
       polkit
       polkit_gnome
@@ -32,6 +31,8 @@
       pavucontrol
     ];
   };
+
+  services.blueman.enable;
 
   programs.hyprland = {
     enable = true;
