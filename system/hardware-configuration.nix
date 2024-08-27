@@ -13,7 +13,8 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  hardware.acpilight.enable = lib.mkDefault true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   hardware.graphics = {
     enable = true;
@@ -27,16 +28,14 @@
       driversi686Linux.amdvlk
     ];
   };
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   
   boot.kernelParams = [
     "video=HDMI-A-1:1920x1080@144"
     "video=DP-2:2560x1440@99"
-    "amdgpu.backlight=0"
-    "acpi_backlight=native"
   ];
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/5bbca373-d0f9-4a3f-90f6-a53e71ba1c8a";

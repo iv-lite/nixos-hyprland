@@ -5,7 +5,7 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     
-    # xwayland.enable = true;
+    xwayland.enable = true;
 
     # # Optional
     # # Whether to enable hyprland-session.target on hyprland startup
