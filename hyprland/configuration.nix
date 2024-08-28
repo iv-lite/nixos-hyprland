@@ -18,7 +18,6 @@
       mako # notification system developed by swaywm maintainer
       pamixer
       playerctl
-      brightnessctl
       tofi
       foot
       cliphist
@@ -33,6 +32,8 @@
   };
 
   services.blueman.enable = true;
+
+  programs.light.enable = true;
 
   programs.hyprland = {
     enable = true;
