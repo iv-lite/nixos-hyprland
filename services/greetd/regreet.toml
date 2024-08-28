@@ -14,7 +14,7 @@ cursor_theme_name = "Adwaita"
 font_name = "Cantarell 16"
 
 # Icon theme name
-icon_theme_name = "Qogir-dark"
+icon_theme_name = "Papirus-Dark"
 
 # GTK theme name
 theme_name = "Arc-Dark"
