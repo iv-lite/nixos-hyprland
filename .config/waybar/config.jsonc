@@ -95,7 +95,7 @@
   },
   "disk": {
     "interval": 30,
-	  "format": "{percentage_used}% 💾"
+    "format": "{percentage_used}% 𓇳"
   },
   // "backlight": {
   //   "device": "acpi_video1",
@@ -164,11 +164,11 @@
     "return-type": "json",
     "max-length": 40,
     "format-icons": {
-        "spotify": "",
-        "default": "🎜"
+      "spotify": "",
+      "default": "🎜"
     },
     "escape": true,
-    "exec": "$HOME/.config/waybar/media/player.py 2> /dev/null",
+    "exec": "$HOME/.config/waybar/media/player.py 2> /dev/null"
   },
   "custom/power": {
     "format": "⏻",
