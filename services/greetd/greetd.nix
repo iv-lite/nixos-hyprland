@@ -23,13 +23,14 @@ in {
     settings = {
       default_session = {
         command = "${load}";
+        # command = "${pkgs.hyprland}/bin/Hyprland --config /etc/nixos/services/greetd/hyprland.conf";
         user = "greeter";
       };
     };
   };
 
-  # programs.regreet = { 
-  #   enable = true;
+  #programs.regreet = { 
+  #  enable = true;
   #   settings = {
   #     background = {
   #       path = "/etc/greetd/login.background.jpg";
@@ -41,7 +42,7 @@ in {
   #     };
   #   };
   #   # settings = pkgs.lib.mkForce "/etc/nixos/services/greetd/regreet.toml";
-  # };
+  #};
 
   # services.greetd = {
   #   enable = true;

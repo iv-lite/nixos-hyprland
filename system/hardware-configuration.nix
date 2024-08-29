@@ -21,8 +21,8 @@
     "amdgpu.backlight=0"
   ];
   hardware.i2c.enable = true;
-  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
-  # services.xserver.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   # hardware.acpilight.enable = true;
@@ -48,14 +48,14 @@
     driSupport32Bit = true;
 
     extraPackages = with pkgs; [
-      amdvlk
+      unstable.amdvlk
     ];
 
     extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
+      unstable.driversi686Linux.amdvlk
     ];
   };
-
+  environment.variables.AMD_VULKAN_ICD = "RADV";
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
