@@ -10,7 +10,7 @@
     pkgs._1password-gui
     wayland
     xwayland
-
+    vulkan-validation-layers
   ];
   environment.variables.EDITOR = "vim";
 

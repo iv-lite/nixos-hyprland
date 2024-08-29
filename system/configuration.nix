@@ -129,7 +129,8 @@
   # $ nix search wget
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  xdg.portal.wlr.enable = true;
+  # xdg.portal.enable = true;
+  # xdg.portal.wlr.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

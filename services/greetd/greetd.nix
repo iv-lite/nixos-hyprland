@@ -8,27 +8,28 @@
     export QT_QPA_PLATFORM=wayland
     export XDG_SESSION_DESKTOP=Hyprland
     export XDG_CURRENT_DESKTOP=Hyprland
+    export WLR_RENDERER=vulkan    
 
     ${pkgs.hyprland}/bin/Hyprland --config /etc/nixos/services/greetd/hyprland.conf
   '';
 in {
 
-  #environment.systemPackages = [
-    # pkgs.unstable.greetd.regreet
-  # ];
+  environment.systemPackages = [
+    pkgs.greetd.regreet
+  ];
 
   services.greetd = {
     enable = true;
-    #settings = {
-    #  default_session = {
-    #    command = "${load}";
-    #    user = "greeter";
-    #  };
-    # };
+    settings = {
+      default_session = {
+        command = "${load}";
+        user = "greeter";
+      };
+    };
   };
 
-  programs.regreet = { 
-    enable = true;
+  # programs.regreet = { 
+  #   enable = true;
   #   settings = {
   #     background = {
   #       path = "/etc/greetd/login.background.jpg";
@@ -40,7 +41,7 @@ in {
   #     };
   #   };
   #   # settings = pkgs.lib.mkForce "/etc/nixos/services/greetd/regreet.toml";
-  };
+  # };
 
   # services.greetd = {
   #   enable = true;

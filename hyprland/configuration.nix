@@ -10,7 +10,6 @@
 
     systemPackages = with pkgs; [
       polkit
-      xwayland
       grim # screenshot functionality
       slurp # screenshot functionality
       wlogout
