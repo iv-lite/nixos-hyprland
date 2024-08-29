@@ -10,32 +10,52 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [
+    "amdgpu"
+  ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "i2c-dev"
+  ];
+  boot.kernelParams = [
+    "amdgpu.backlight=0"
+  ];
+  hardware.i2c.enable = true;
+  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
+  # services.xserver.enable = true;
+  # services.xserver.videoDrivers = [ "amdgpu" ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  # hardware.acpilight.enable = true;
 
-  hardware.graphics = {
+  # hardware.graphics = {
+  #   enable = true;
+  #   enable32Bit = true;
+
+  #   extraPackages = with pkgs; [
+  #     amdvlk
+  #   ];
+  #   # For 32 bit applications 
+  #   extraPackages32 = with pkgs; [
+  #     driversi686Linux.amdvlk
+  #   ];
+  # };
+
+  hardware.opengl = {
     enable = true;
-    enable32Bit = true;
+    package = pkgs.unstable.mesa.drivers;
+    package32 = pkgs.unstable.pkgsi686Linux.mesa.drivers;
+    driSupport = true;
+    driSupport32Bit = true;
 
     extraPackages = with pkgs; [
       amdvlk
     ];
-    # For 32 bit applications 
+
     extraPackages32 = with pkgs; [
       driversi686Linux.amdvlk
     ];
   };
 
-  boot.kernelParams = [
-    "video=card1-HDMI-A-1:1920x1080@144"
-    "video=card1-DP-2:2560x1440@99"
-  ];
-
-  hardware.i2c.enable = true;
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot

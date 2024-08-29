@@ -14,7 +14,7 @@
 in {
 
   environment.systemPackages = [
-    pkgs.greetd.regreet
+    pkgs.unstable.greetd.regreet
   ];
 
   services.greetd = {

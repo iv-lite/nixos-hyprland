@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, user, ... }:
+{ config
+, pkgs
+, nixpkgs-unstable
+, user
+, ...
+}:
 
 {
   imports =
@@ -10,6 +15,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./packages
+      ./fonts
     ];
 
   # Bootloader.
@@ -100,86 +106,30 @@
   users.users.iv = {
     isNormalUser = true;
     description = "I.V.";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "i2c" "input" ];
     packages = with pkgs; [
       #  thunderbird
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   programs.dconf.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+    (final: _prev: {
+      unstable = import nixpkgs-unstable {
+        inherit (final) system config;
+      };
+    })
+  ];
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    nixpkgs-fmt
-    pkgs._1password-gui
-    wayland
-    xwayland
-  ];
-  environment.variables.EDITOR = "vim";
 
-  fonts = {
-    packages = with pkgs; [
-      corefonts
-      ubuntu_font_family
-      powerline-fonts
-      font-awesome
-      source-code-pro
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      emojione
-      kanji-stroke-order-font
-      ipafont
-
-      liberation_ttf
-      mplus-outline-fonts.githubRelease
-      dina-font
-      proggyfonts
-
-      font-awesome
-      powerline-symbols
-    ];
-
-    fontconfig = {
-      # dpi = 96;
-      #dpi = 180;
-      # hinting.autohint = false;
-      # ultimate.enable = false;
-      # penultimate.enable = false;
-      # useEmbeddedBitmaps = true;
-      antialias = true;
-
-      defaultFonts = {
-        monospace = [
-          "Fira Code"
-          "FiraCode Nerd Font"
-          "DejaVu Sans Mono"
-          "Noto Mono"
-        ];
-        sansSerif = [
-          "Fira Sans"
-          "Ubuntu"
-          "DejaVu Sans"
-          "Noto Sans"
-        ];
-        serif = [
-          "Roboto Slab"
-          "PT Serif"
-          "Liberation Serif"
-          "Noto Serif"
-        ];
-      };
-    };
-  };
+  xdg.portal.wlr.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
