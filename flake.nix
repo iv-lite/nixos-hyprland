@@ -1,7 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -29,6 +30,7 @@
 
   outputs =
     inputs@{ nixpkgs
+    , nixpkgs-stable
     , nixpkgs-unstable
     , solaar
     , home-manager
@@ -47,7 +49,10 @@
         nixos-z690 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
-            inherit inputs nixpkgs-unstable
+            inherit
+              inputs
+              nixpkgs-unstable
+              nixpkgs-stable
               ;
           };
           modules = [

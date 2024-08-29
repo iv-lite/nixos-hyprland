@@ -22,39 +22,39 @@
   ];
   hardware.i2c.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # services.xserver.enable = true;
-  # services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # hardware.acpilight.enable = true;
+  hardware.acpilight.enable = true;
 
-  # hardware.graphics = {
-  #   enable = true;
-  #   enable32Bit = true;
-
-  #   extraPackages = with pkgs; [
-  #     amdvlk
-  #   ];
-  #   # For 32 bit applications 
-  #   extraPackages32 = with pkgs; [
-  #     driversi686Linux.amdvlk
-  #   ];
-  # };
-
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    # package = pkgs.unstable.mesa.drivers;
-    # package32 = pkgs.unstable.pkgsi686Linux.mesa.drivers;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
 
-    # extraPackages = with pkgs; [
-    #  unstable.mdvlk
-    # ];
-
-    # extraPackages32 = with pkgs; [
-    #   unstable.driversi686Linux.amdvlk
-    # ];
+    extraPackages = with pkgs; [
+      amdvlk
+    ];
+    # For 32 bit applications 
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
   };
+
+  # hardware.opengl = {
+  #   enable = true;
+  #   # package = pkgs.unstable.mesa.drivers;
+  #   # package32 = pkgs.unstable.pkgsi686Linux.mesa.drivers;
+  #   driSupport = true;
+  #   driSupport32Bit = true;
+
+  #   # extraPackages = with pkgs; [
+  #   #  unstable.mdvlk
+  #   # ];
+
+  #   # extraPackages32 = with pkgs; [
+  #   #   unstable.driversi686Linux.amdvlk
+  #   # ];
+  # };
   # environment.variables.AMD_VULKAN_ICD = "RADV";
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth

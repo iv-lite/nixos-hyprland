@@ -5,6 +5,7 @@
 { config
 , pkgs
 , nixpkgs-unstable
+, nixpkgs-stable
 , user
 , ...
 }:
@@ -118,6 +119,9 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (final: _prev: {
+      stable = import nixpkgs-stable {
+        inherit (final) system config;
+      };
       unstable = import nixpkgs-unstable {
         inherit (final) system config;
       };
@@ -131,7 +135,7 @@
 
   # xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
