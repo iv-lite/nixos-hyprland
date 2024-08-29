@@ -1,8 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +27,6 @@
 
   outputs =
     inputs@{ nixpkgs
-    , nixpkgs-unstable
     , solaar
     , home-manager
     , split-monitor-workspaces
@@ -46,12 +43,10 @@
       nixosConfigurations = {
         nixos-z690 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs nixpkgs-unstable
-              ;
-          };
+          specialArgs = { inherit inputs; };
           modules = [
             ./system/configuration.nix
+
             solaar.nixosModules.default
             ./services
             ./themes/gtk.nix
@@ -64,9 +59,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.iv = import ./home;
-              home-manager.extraSpecialArgs = {
-                inherit inputs split-monitor-workspaces;
-              };
+              home-manager.extraSpecialArgs = { inherit inputs split-monitor-workspaces; };
             }
           ];
         };

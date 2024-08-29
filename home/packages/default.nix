@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+    config,
+    pkgs,
+    ...
 }: {
   imports = [
     ./sources/bash.nix
@@ -10,7 +11,7 @@
   ];
 
   home.packages = with pkgs; [
-    neofetch
+    neofetch  
 
     # nix related
     #
@@ -20,7 +21,7 @@
 
     # productivity
     glow # markdown previewer in terminal
-    unstable.proton-pass
+    proton-pass
 
     # media
     cider

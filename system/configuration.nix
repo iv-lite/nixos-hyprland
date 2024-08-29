@@ -2,18 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config
-, pkgs
-, nixpkgs-unstable
-, user
-, ...
-}:
+{ config, pkgs, user, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./packages
     ];
 
   # Bootloader.
@@ -104,7 +100,7 @@
   users.users.iv = {
     isNormalUser = true;
     description = "I.V.";
-    extraGroups = [ "networkmanager" "wheel" "video" "i2c" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
       #  thunderbird
     ];
@@ -116,21 +112,12 @@
   programs.dconf.enable = true;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [
-    (final: _prev: {
-      unstable = import nixpkgs-unstable {
-        inherit (final) system config;
-      };
-    })
-  ];
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    brightnessctl
     wget
     nixpkgs-fmt
     pkgs._1password-gui
@@ -193,8 +180,6 @@
       };
     };
   };
-
-  xdg.portal.wlr.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
