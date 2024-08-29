@@ -95,7 +95,7 @@
   },
   "disk": {
     "interval": 30,
-    "format": "{percentage_used}% 𓇳"
+    "format": "{percentage_used}% 🖴"
   },
   // "backlight": {
   //   "device": "acpi_video1",
