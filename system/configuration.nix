@@ -117,6 +117,7 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    nixpkgs-fmt
     pkgs._1password-gui
     wayland
     xwayland
@@ -153,7 +154,7 @@
       # ultimate.enable = false;
       # penultimate.enable = false;
       # useEmbeddedBitmaps = true;
-      # antialias = true;
+      antialias = true;
 
       defaultFonts = {
         monospace = [
