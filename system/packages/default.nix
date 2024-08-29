@@ -8,7 +8,7 @@
     wget
     nixpkgs-fmt
     pkgs._1password-gui
-    wayland
+    # wayland
     xwayland
     vulkan-validation-layers
   ];

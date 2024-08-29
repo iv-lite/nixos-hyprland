@@ -9,7 +9,6 @@
     sessionVariables.NIXOS_OZONE_WL = "1";
 
     systemPackages = with pkgs; [
-      xdg-desktop-portal-hyprland
       polkit
       grim # screenshot functionality
       slurp # screenshot functionality
