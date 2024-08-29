@@ -15,22 +15,21 @@
 in {
 
   environment.systemPackages = [
-    # pkgs.greetd.regreet
+    pkgs.greetd.regreet
   ];
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        # command = "${load}";
-        command = "regreet";
+        command = "${load}";
         user = "greeter";
       };
     };
   };
 
-  programs.regreet = { 
-    enable = true;
+  # programs.regreet = { 
+  #   enable = true;
   #   settings = {
   #     background = {
   #       path = "/etc/greetd/login.background.jpg";
@@ -41,8 +40,8 @@ in {
   #      cursor_theme_name = "Adwaita";  
   #     };
   #   };
-    settings = pkgs.lib.mkForce "/etc/nixos/services/greetd/regreet.toml";
-  };
+  #   # settings = pkgs.lib.mkForce "/etc/nixos/services/greetd/regreet.toml";
+  # };
 
   # services.greetd = {
   #   enable = true;
