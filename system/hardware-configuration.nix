@@ -5,54 +5,78 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [
+    "amdgpu"
+  ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "i2c-dev"
+  ];
+  boot.kernelParams = [
+    "acpi_backlight=native"
+  ];
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  hardware.graphics = {
+  hardware.acpilight.enable = true;
+
+  # hardware.graphics = {
+  #   enable = true;
+  #   enable32Bit = true;
+
+  #   extraPackages = with pkgs; [
+  #     amdvlk
+  #   ];
+  #   # For 32 bit applications 
+  #   extraPackages32 = with pkgs; [
+  #     driversi686Linux.amdvlk
+  #   ];
+  # };
+
+  hardware.opengl = {
     enable = true;
-    enable32Bit = true;
+    driSupport = true;
+    driSupport32Bit = true;
 
     extraPackages = with pkgs; [
       amdvlk
     ];
-    # For 32 bit applications 
+
     extraPackages32 = with pkgs; [
       driversi686Linux.amdvlk
     ];
   };
-  
-  boot.kernelParams = [
-    "video=card1-HDMI-A-1:1920x1080@144"
-    "video=card1-DP-2:2560x1440@99"
-  ];
+
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5bbca373-d0f9-4a3f-90f6-a53e71ba1c8a";
+    {
+      device = "/dev/disk/by-uuid/5bbca373-d0f9-4a3f-90f6-a53e71ba1c8a";
       fsType = "ext4";
     };
 
   boot.initrd.luks.devices."luks-bf1ab646-5407-4d1c-ad54-333aa79df6ab".device = "/dev/disk/by-uuid/bf1ab646-5407-4d1c-ad54-333aa79df6ab";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/1B82-0DBD";
+    {
+      device = "/dev/disk/by-uuid/1B82-0DBD";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/834e3e9f-6cb4-4169-a802-278655acb4b1"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/834e3e9f-6cb4-4169-a802-278655acb4b1"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

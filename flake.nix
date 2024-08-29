@@ -1,6 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,41 +27,49 @@
     };
   };
 
-  outputs = inputs@{
-    nixpkgs,
-    solaar,
-    home-manager,
-    split-monitor-workspaces,
-    ...
-  }: let 
-    system = "x86_64-linux";
-    #        ↑ Swap it for your system if needed
-    # pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    # Used with `nixos-rebuild --flake .#<hostname>`
-    # nixosConfigurations."<hostname>".config.system.build.toplevel must be>
-    nixosConfigurations = {
-      nixos-z690 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./system/configuration.nix
-          solaar.nixosModules.default
-          ./services
-          ./themes/gtk.nix
-          ./hyprland/configuration.nix
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.iv = import ./home;
-            home-manager.extraSpecialArgs = { inherit inputs split-monitor-workspaces; };
-          }
-        ];
+  outputs =
+    inputs@{ nixpkgs
+    , nixpkgs-unstable
+    , solaar
+    , home-manager
+    , split-monitor-workspaces
+    , ...
+    }:
+    let
+      system = "x86_64-linux";
+      #        ↑ Swap it for your system if needed
+      # pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+      # Used with `nixos-rebuild --flake .#<hostname>`
+      # nixosConfigurations."<hostname>".config.system.build.toplevel must be>
+      nixosConfigurations = {
+        nixos-z690 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs nixpkgs-unstable
+              ;
+          };
+          modules = [
+            ./system/configuration.nix
+            solaar.nixosModules.default
+            ./services
+            ./themes/gtk.nix
+            ./hyprland/configuration.nix
+            # make home-manager as a module of nixos
+            # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.users.iv = import ./home;
+              home-manager.extraSpecialArgs = {
+                inherit inputs split-monitor-workspaces;
+              };
+            }
+          ];
+        };
       };
     };
-  };
 }
