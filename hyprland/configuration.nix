@@ -66,9 +66,10 @@
 
   services.blueman.enable = true;
   services.libinput.enable = true;
+  services.hypridle.enable = true;
+
   programs.hyprlock.enable = true;
   programs.light.enable = true;
-
   programs.foot = {
     enable = true;
 
