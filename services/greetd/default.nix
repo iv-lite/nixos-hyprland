@@ -80,30 +80,30 @@ in
     };
   };
 
-  programs.regreet = {
-    enable = true;
-    # settings = {
-    #   background = {
-    #     path = "/etc/greetd/login.background.jpg";
-    #     fit = "cover";
-    #   };
+  # programs.regreet = {
+  #   enable = true;
+  #   # settings = {
+  #   #   background = {
+  #   #     path = "/etc/greetd/login.background.jpg";
+  #   #     fit = "cover";
+  #   #   };
 
-    #   GTK = pkgs.lib.mkForce {
-    #     application_prefer_dark_theme = true;
-    #     font_name = "FontAwesome";
-    #     cursor_theme_name = "Adwaita";
-    #     icon_theme_name = "Papirus-Dark";
-    #     theme_name = "Arc-Dark";
-    #   };
+  #   #   GTK = pkgs.lib.mkForce {
+  #   #     application_prefer_dark_theme = true;
+  #   #     font_name = "FontAwesome";
+  #   #     cursor_theme_name = "Adwaita";
+  #   #     icon_theme_name = "Papirus-Dark";
+  #   #     theme_name = "Arc-Dark";
+  #   #   };
 
-    #   commands = {
-    #     reboot = [ "systemctl" "reboot" ];
-    #     poweroff = [ "systemctl" "poweroff" ];
-    #   };
+  #   #   commands = {
+  #   #     reboot = [ "systemctl" "reboot" ];
+  #   #     poweroff = [ "systemctl" "poweroff" ];
+  #   #   };
 
-    #   appearance = {
-    #     greeting_msg = "Lite-Desk";
-    #   };
-    # };
-  };
+  #   #   appearance = {
+  #   #     greeting_msg = "Lite-Desk";
+  #   #   };
+  #   # };
+  # };
 }
