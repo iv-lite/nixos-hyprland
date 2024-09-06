@@ -58,8 +58,6 @@
       tofi
       foot
       cliphist
-      polkit
-      polkit_gnome
       arc-theme
       papirus-icon-theme
       waybar

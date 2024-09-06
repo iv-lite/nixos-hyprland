@@ -12,8 +12,7 @@
     # xwayland
     vulkan-validation-layers
 
-    # arc-theme
-    # papirus-icon-theme
+    proton-pass
   ];
   environment.variables.EDITOR = "vim";
 

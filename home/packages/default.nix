@@ -20,7 +20,6 @@
 
     # productivity
     glow # markdown previewer in terminal
-    unstable.proton-pass
 
     # media
     cider
