@@ -5,7 +5,6 @@
 { config
 , pkgs
 , nixpkgs-unstable
-, nixpkgs-stable
 , user
 , ...
 }:
@@ -26,7 +25,6 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    initrd.luks.devices."luks-55ca939b-1a18-471d-af24-86058570aeb5".device = "/dev/disk/by-uuid/55ca939b-1a18-471d-af24-86058570aeb5";
   };
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -119,9 +117,6 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (final: _prev: {
-      stable = import nixpkgs-stable {
-        inherit (final) system config;
-      };
       unstable = import nixpkgs-unstable {
         inherit (final) system config;
       };
@@ -134,7 +129,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # xdg.portal.enable = true;
-  xdg.portal.wlr.enable = true;
+  # xdg.portal.wlr.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -3,25 +3,19 @@
 {
   fonts = {
     packages = with pkgs; [
-      corefonts
-      ubuntu_font_family
-      powerline-fonts
-      font-awesome
-      source-code-pro
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      emojione
-      kanji-stroke-order-font
-      ipafont
-
       liberation_ttf
+      fira-code
+      fira-code-symbols
       mplus-outline-fonts.githubRelease
       dina-font
       proggyfonts
+      roboto
 
       font-awesome
-      powerline-symbols
+      font-awesome_5
     ];
 
     fontconfig = {
@@ -32,27 +26,6 @@
       # penultimate.enable = false;
       # useEmbeddedBitmaps = true;
       antialias = true;
-
-      defaultFonts = {
-        monospace = [
-          "Fira Code"
-          "FiraCode Nerd Font"
-          "DejaVu Sans Mono"
-          "Noto Mono"
-        ];
-        sansSerif = [
-          "Fira Sans"
-          "Ubuntu"
-          "DejaVu Sans"
-          "Noto Sans"
-        ];
-        serif = [
-          "Roboto Slab"
-          "PT Serif"
-          "Liberation Serif"
-          "Noto Serif"
-        ];
-      };
     };
   };
 

@@ -3,7 +3,7 @@
 , ...
 }: {
   imports = [
-    ./greetd/greetd.nix
+    ./greetd
   ];
 
   services.solaar = {
@@ -14,10 +14,10 @@
     extraArgs = ""; # Extra arguments to pass to solaar on startup
   };
 
-  services.udev = {
-    enable = true;
-    extraRules = ''
-      KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-    '';
-  };
+  # services.udev = {
+  #   enable = true;
+  #   extraRules = ''
+  #     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  #   '';
+  # };
 }

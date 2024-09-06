@@ -9,8 +9,11 @@
     nixpkgs-fmt
     pkgs._1password-gui
     # wayland
-    xwayland
+    # xwayland
     vulkan-validation-layers
+
+    # arc-theme
+    # papirus-icon-theme
   ];
   environment.variables.EDITOR = "vim";
 
