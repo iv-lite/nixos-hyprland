@@ -75,6 +75,6 @@ in
 
   programs.regreet = {
     enable = true;
-    settings = pkgs.lib.mkDefault ./regreet.toml;
+    settings = pkgs.lib.mkForce ./regreet.toml;
   };
 }
