@@ -6,6 +6,7 @@
     ./sources/bash.nix
     ./sources/git.nix
     ./sources/direnv.nix
+    ./sources/vscode.nix
   ];
 
   home.packages = with pkgs; [

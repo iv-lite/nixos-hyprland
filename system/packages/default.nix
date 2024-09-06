@@ -11,7 +11,6 @@
     # wayland
     # xwayland
     vulkan-validation-layers
-    vscode.fhs
 
     proton-pass
   ];
