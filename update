@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+nix flake update
+
+if [ -d .git ]; then
+    git add flake.lock
+    git commit -m "Change - nix update"
+fi
+
+./switch
