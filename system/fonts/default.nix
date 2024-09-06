@@ -26,6 +26,22 @@
       # penultimate.enable = false;
       # useEmbeddedBitmaps = true;
       antialias = true;
+
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [
+          "Noto Sans Mono"
+          "emoji"
+        ];
+        sansSerif = [
+          "Noto Sans"
+          "emoji"
+        ];
+        serif = [
+          "Noto Serif"
+          "emoji"
+        ];
+      };
     };
   };
 
