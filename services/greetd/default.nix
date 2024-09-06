@@ -58,9 +58,9 @@ in
   };
 
 
-  environment.systemPackages = with pkgs; [
-    greetd.regreet
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   greetd.regreet
+  # ];
 
   services.greetd = {
     enable = true;
@@ -75,6 +75,28 @@ in
 
   programs.regreet = {
     enable = true;
-    settings = pkgs.lib.mkForce ./regreet.toml;
+    settings = {
+      background = {
+        path = "/etc/greetd/login.background.jpg";
+        fit = "cover";
+      };
+
+      GTK = {
+        application_prefer_dark_theme = true;
+        cursor_theme_name = "Papirus-Dark";
+        font_name = "Cantarell 16";
+        icon_theme_name = "Papirus-Dark";
+        theme_name = "Arc-Dark";
+      };
+
+      commands = {
+        reboot = [ "systemctl" "reboot" ];
+        poweroff = [ "systemctl" "poweroff" ];
+      };
+
+      appearance = {
+        greeting_msg = "Lite-Desk";
+      };
+    };
   };
 }
