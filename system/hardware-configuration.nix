@@ -15,14 +15,19 @@ in
   boot.initrd.kernelModules = [
     "amdgpu"
   ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.ddcci-driver ];
   boot.kernelModules = [
     "kvm-intel"
+    "i2c-dev"
+    "ddcci_backlight"
   ];
   boot.kernelParams = [
-    "amdgpu.backlight=0"
+    # "amdgpu.backlight=0"
   ];
+  hardware.i2c.enable = true;
+
   # hardware.i2c.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   # services.xserver.enable = true;
   # services.xserver.videoDrivers = [ "amdgpu" ];
 
