@@ -19,8 +19,8 @@ in
     "kvm-intel"
   ];
   boot.kernelParams = [
-    # "amdgpu.backlight=0"
-    "acpi_backlight=video"
+    "amdgpu.backlight=0"
+    "acpi_backlight=vendor"
   ];
   # hardware.i2c.enable = true;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
