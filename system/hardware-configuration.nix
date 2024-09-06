@@ -28,7 +28,7 @@ in
   # services.xserver.enable = true;
   # services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # hardware.acpilight.enable = true;
+  hardware.acpilight.enable = true;
 
   hardware.graphics = {
     enable = true;
