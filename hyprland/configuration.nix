@@ -74,7 +74,7 @@
 
     settings = {
       main = {
-        font = "FontAwesome:size=24";
+        font = "monospace:size=12";
       };
     };
   };
