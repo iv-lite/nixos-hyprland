@@ -81,9 +81,10 @@ in
         fit = "cover";
       };
 
-      GTK = {
+      GTK = pkgs.lib.mkForce {
         application_prefer_dark_theme = true;
-        font_name = "Cantarell 16";
+        font_name = "FontAwesome";
+        cursor_theme_name = "Adwaita";
         icon_theme_name = "Papirus-Dark";
         theme_name = "Arc-Dark";
       };
