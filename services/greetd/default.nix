@@ -83,7 +83,6 @@ in
 
       GTK = {
         application_prefer_dark_theme = true;
-        cursor_theme_name = "Papirus-Dark";
         font_name = "Cantarell 16";
         icon_theme_name = "Papirus-Dark";
         theme_name = "Arc-Dark";
