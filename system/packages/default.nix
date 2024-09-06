@@ -8,8 +8,6 @@
     wget
     nixpkgs-fmt
     pkgs._1password-gui
-    # wayland
-    # xwayland
     vulkan-validation-layers
 
     proton-pass

@@ -42,12 +42,8 @@
       meson
       cpio
 
-      # hyprlang
-      # hyprcursor
-      # hyprwayland-scanner
       hyprpaper
 
-      # polkit
       grim # screenshot functionality
       slurp # screenshot functionality
       wlogout
