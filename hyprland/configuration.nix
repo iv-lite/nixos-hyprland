@@ -56,7 +56,6 @@
       pamixer
       playerctl
       tofi
-      foot
       cliphist
       arc-theme
       papirus-icon-theme
@@ -69,6 +68,16 @@
   services.libinput.enable = true;
 
   programs.light.enable = true;
+
+  programs.foot = {
+    enable = true;
+
+    settings = {
+      main = {
+        font = "FontAwesome:size=24";
+      };
+    };
+  };
 
   programs.hyprland = {
     enable = true;
