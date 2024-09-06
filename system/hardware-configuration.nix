@@ -18,11 +18,10 @@ in
   boot.kernelModules = [
     "kvm-intel"
   ];
-  # boot.kernelParams = [
-  #   "amdgpu.backlight=0"
-  #   "video=card1-DP-2:2560x1440@99"
-  #   "video=card1-HDMI-A-1:1920x1080@144"
-  # ];
+  boot.kernelParams = [
+    # "amdgpu.backlight=0"
+    "acpi_backlight=video"
+  ];
   # hardware.i2c.enable = true;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # services.xserver.enable = true;
