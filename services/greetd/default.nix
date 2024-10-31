@@ -16,7 +16,9 @@ let
   '';
 in
 {
-  # programs.regreet.enable = true;
+  environment.systemPackages = with pkgs; [
+    greetd.regreet
+  ];
 
   environment.etc = {
     "greetd/config.toml" = {
@@ -63,11 +65,6 @@ in
       group = "greeter";
     };
   };
-
-
-  environment.systemPackages = with pkgs; [
-    greetd.regreet
-  ];
 
   services.greetd = {
     enable = true;
