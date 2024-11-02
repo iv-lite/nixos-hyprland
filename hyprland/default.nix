@@ -21,9 +21,9 @@
     systemd.enable = true;
     systemd.variables = [ "--all" ];
 
-    # extraConfig = ''
-    #   ${builtins.readFile ./hyprland.conf}
-    # '';
+    extraConfig = ''
+      ${builtins.readFile ./hyprland.conf}
+    '';
 
     plugins = [
       inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
