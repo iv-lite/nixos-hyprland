@@ -2,14 +2,13 @@
 
 {
   environment.systemPackages = with pkgs; [
-    ddcutil
     vim
-    brightnessctl
     wget
     nixpkgs-fmt
     pkgs._1password-gui
     vulkan-validation-layers
-
+    xdg-utils
+    pass-wayland
     proton-pass
   ];
   environment.variables.EDITOR = "vim";
