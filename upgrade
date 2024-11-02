@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+sudo nixos-rebuild switch --recreate-lock-file --flake .#nixos --impure
