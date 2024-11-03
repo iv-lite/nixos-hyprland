@@ -6,8 +6,8 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    unstable.cage
-    unstable.greetd.regreet
+    cage
+    greetd.regreet
     # cage
     # greetd.regreet
   ];

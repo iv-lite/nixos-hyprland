@@ -43,7 +43,6 @@
       cpio
 
       libsForQt5.qt5ct
-      unstable.hyprland
       hyprpaper
 
       grim # screenshot functionality
@@ -62,7 +61,7 @@
       solaar
       logitech-udev-rules
 
-      unstable.foot
+      foot
     ];
   };
 

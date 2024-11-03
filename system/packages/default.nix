@@ -9,7 +9,7 @@
     vulkan-validation-layers
     xdg-utils
     pass-wayland
-    unstable.proton-pass
+    proton-pass
   ];
   environment.variables.EDITOR = "vim";
 
