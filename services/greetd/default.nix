@@ -5,8 +5,8 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    cage
-    greetd.regreet
+    unstable.cage
+    unstable.greetd.regreet
   ];
 
   environment.etc = {
@@ -60,13 +60,13 @@
 
     settings = {
       default_session = {
-        command = "cage -s -- regreet --config /etc/greetd/regreet.toml";
+        command = "cage -s -- regreet";
         # user = "greeter";
       };
     };
   };
 
-  services.displayManager.defaultSession = "Hyprland";
+  services.displayManager.defaultSession = "hyprland";
 
   # programs.regreet = {
   #   enable = true;

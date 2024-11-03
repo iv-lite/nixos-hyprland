@@ -66,17 +66,17 @@ in
     #   vulkan-extension-layer
     # ];
 
-    extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
-    ];
+    # extraPackages32 = with pkgs; [
+    #   driversi686Linux.amdvlk
+    # ];
 
     extraPackages = with pkgs; [
       unstable.amdvlk
     ];
 
-    # extraPackages32 = with pkgs; [
-    #   unstable.driversi686Linux.amdvlk
-    # ];
+    extraPackages32 = with pkgs; [
+      unstable.driversi686Linux.amdvlk
+    ];
   };
   # environment.variables.AMD_VULKAN_ICD = "vulkan";
 
