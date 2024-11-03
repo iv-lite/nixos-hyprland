@@ -14,24 +14,24 @@
     ./packages/thunar.nix
   ];
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
-      pkgs.xdg-desktop-portal-gnome
-    ];
+  # xdg.portal = {
+  #   enable = true;
+  #   xdgOpenUsePortal = true;
+  #   wlr.enable = true;
+  #   extraPortals = [
+  #     pkgs.xdg-desktop-portal-gtk
+  #     pkgs.xdg-desktop-portal-wlr
+  #     pkgs.xdg-desktop-portal-gnome
+  #   ];
 
-    config = {
-      common = {
-        default = [ "gtk" ];
-      };
-    };
+  #   config = {
+  #     common = {
+  #       default = [ "gtk" ];
+  #     };
+  #   };
 
-    configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
-  };
+  #   configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
+  # };
 
   environment = {
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -83,10 +83,10 @@
 
   # programs.hyprland.enable = true;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  #   xwayland.enable = true;
-  # };
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    xwayland.enable = true;
+  };
 }

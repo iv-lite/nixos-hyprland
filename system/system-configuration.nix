@@ -48,35 +48,35 @@ in
 
   hardware.opengl = {
     enable = true;
-    package = pkgs.unstable.mesa.drivers;
-    package32 = pkgs.unstable.pkgsi686Linux.mesa.drivers;
+    # package = pkgs.unstable.mesa.drivers;
+    # package32 = pkgs.unstable.pkgsi686Linux.mesa.drivers;
     # package = pkgs-hyprland.mesa.drivers;
     # package32 = pkgs-hyprland.pkgsi686Linux.mesa.drivers;
     driSupport = true;
     driSupport32Bit = true;
 
-    extraPackages = with pkgs.unstable; [
-      amdvlk
-      vulkan-loader
-      vulkan-validation-layers
-      vulkan-extension-layer
-    ];
-
-    extraPackages32 = with pkgs.unstable; [
-      driversi686Linux.amdvlk
-    ];
-
-
-    # extraPackages = with pkgs; [
+    # extraPackages = with pkgs.unstable; [
     #   amdvlk
     #   vulkan-loader
     #   vulkan-validation-layers
     #   vulkan-extension-layer
     # ];
 
-    # extraPackages32 = with pkgs; [
+    # extraPackages32 = with pkgs.unstable; [
     #   driversi686Linux.amdvlk
     # ];
+
+
+    extraPackages = with pkgs; [
+      amdvlk
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+    ];
+
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
 
     # extraPackages = with pkgs-hyprland; [
     #   amdvlk
