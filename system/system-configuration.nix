@@ -28,8 +28,8 @@ in
 
   # hardware.i2c.enable = true;
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-  # services.xserver.enable = true;
-  # services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   hardware.acpilight.enable = true;
 
