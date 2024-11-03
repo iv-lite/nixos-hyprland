@@ -1,4 +1,5 @@
 { lib
+, inputs
 , config
 , pkgs
 , ...
@@ -66,7 +67,14 @@
     };
   };
 
-  services.displayManager.defaultSession = "hyprland";
+  services.displayManager = {
+    enable = true;
+
+    sessionPackages = [
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
+    ];
+    defaultSession = "hyprland";
+  };
 
   # programs.regreet = {
   #   enable = true;
