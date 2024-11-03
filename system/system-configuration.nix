@@ -15,27 +15,23 @@ in
   boot.initrd.kernelModules = [
     "amdgpu"
   ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.ddcci-driver ];
+  boot.extraModulePackages = [
+    # config.boot.kernelPackages.ddcci-driver 
+  ];
   boot.kernelModules = [
     "kvm-intel"
-    "i2c-dev"
-    "ddcci_backlight"
   ];
   boot.kernelParams = [
-    # "amdgpu.backlight=0"
+    "amdgpu.backlight=0"
   ];
-  hardware.i2c.enable = true;
-  services.udev.extraRules = ''
-    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  '';
 
 
   # hardware.i2c.enable = true;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # services.xserver.enable = true;
-  # services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # hardware.acpilight.enable = true;
+  hardware.acpilight.enable = true;
 
   # hardware.graphics = {
   #   enable = true;
@@ -52,12 +48,24 @@ in
 
   hardware.opengl = {
     enable = true;
+    package = pkgs.unstable.mesa.drivers;
+    package32 = pkgs.unstable.pkgsi686Linux.mesa.drivers;
     # package = pkgs-hyprland.mesa.drivers;
     # package32 = pkgs-hyprland.pkgsi686Linux.mesa.drivers;
-    package = pkgs-hyprland.mesa.drivers;
-    package32 = pkgs-hyprland.pkgsi686Linux.mesa.drivers;
     driSupport = true;
     driSupport32Bit = true;
+
+    extraPackages = with pkgs.unstable; [
+      amdvlk
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
+    ];
+
+    extraPackages32 = with pkgs.unstable; [
+      driversi686Linux.amdvlk
+    ];
+
 
     # extraPackages = with pkgs; [
     #   amdvlk
@@ -70,13 +78,13 @@ in
     #   driversi686Linux.amdvlk
     # ];
 
-    extraPackages = with pkgs-hyprland; [
-      amdvlk
-    ];
+    # extraPackages = with pkgs-hyprland; [
+    #   amdvlk
+    # ];
 
-    extraPackages32 = with pkgs-hyprland; [
-      driversi686Linux.amdvlk
-    ];
+    # extraPackages32 = with pkgs-hyprland; [
+    #   driversi686Linux.amdvlk
+    # ];
   };
   # environment.variables.AMD_VULKAN_ICD = "vulkan";
 
