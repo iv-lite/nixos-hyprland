@@ -19,6 +19,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     cage
+    greetd.regreet
   ];
 
   environment.etc = {
@@ -78,8 +79,6 @@ in
       };
     };
   };
-
-  programs.regreet.enable = true;
 
   # programs.regreet = {
   #   enable = true;
