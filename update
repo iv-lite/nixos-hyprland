@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-nix flake update
+sudo nix flake update
 
 if [ -d .git ]; then
     git add flake.lock
