@@ -58,9 +58,12 @@
       waybar
       pavucontrol
 
+      unstable.solaar
       unstable.foot
     ];
   };
+
+  hardware.logitech.wireless.enable = true;
 
   services.blueman.enable = true;
   services.libinput.enable = true;
