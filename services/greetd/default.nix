@@ -16,7 +16,7 @@
       group = "greeter";
     };
 
-    "greetd/regreet.toml" = lib.mkForce {
+    "greetd/regreet.toml" = {
       source = ./.config/regreet.toml;
       user = "greeter";
       group = "greeter";
@@ -61,7 +61,7 @@
     settings = {
       default_session = {
         command = "cage -s -- regreet --config /etc/greetd/regreet.toml";
-        user = "greeter";
+        # user = "greeter";
       };
     };
   };
