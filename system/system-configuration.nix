@@ -80,13 +80,25 @@ in
 
     extraPackages = with pkgs-hyprland; [
       amdvlk
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-extension-layer
     ];
 
     extraPackages32 = with pkgs-hyprland; [
       driversi686Linux.amdvlk
     ];
+
+
+    # extraPackages = with pkgs-hyprland; [
+    #   amdvlk
+    # ];
+
+    # extraPackages32 = with pkgs-hyprland; [
+    #   driversi686Linux.amdvlk
+    # ];
   };
-  # environment.variables.AMD_VULKAN_ICD = "vulkan";
+  environment.variables.AMD_VULKAN_ICD = "vulkan";
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot

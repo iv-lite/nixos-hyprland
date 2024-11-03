@@ -8,6 +8,8 @@
   environment.systemPackages = with pkgs; [
     unstable.cage
     unstable.greetd.regreet
+    # cage
+    # greetd.regreet
   ];
 
   environment.etc = {
@@ -62,7 +64,7 @@
     settings = {
       default_session = {
         command = "cage -s -- regreet";
-        # user = "greeter";
+        user = "greeter";
       };
     };
   };

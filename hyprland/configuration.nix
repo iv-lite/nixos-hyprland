@@ -57,8 +57,9 @@
       papirus-icon-theme
       waybar
       pavucontrol
+      solaar
+      logitech-udev-rules
 
-      unstable.solaar
       unstable.foot
     ];
   };
@@ -67,7 +68,7 @@
 
   services.blueman.enable = true;
   services.libinput.enable = true;
-  services.hypridle.enable = true;
+  # services.hypridle.enable = true;
 
   programs.hyprlock.enable = true;
   programs.light.enable = true;
