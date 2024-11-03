@@ -42,10 +42,7 @@
       meson
       cpio
 
-      unstable.qt6Packages.qt6ct
-      qt6.qtwayland
-      qt5.qtwayland
-
+      libsForQt5.qt5ct
 
       hyprpaper
 
