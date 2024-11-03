@@ -57,6 +57,8 @@
       papirus-icon-theme
       waybar
       pavucontrol
+
+      unstable.foot
     ];
   };
 
@@ -66,15 +68,15 @@
 
   programs.hyprlock.enable = true;
   programs.light.enable = true;
-  programs.foot = {
-    enable = true;
+  # programs.foot = {
+  #   enable = true;
 
-    settings = {
-      main = {
-        font = "monospace:size=10";
-      };
-    };
-  };
+  #   settings = {
+  #     main = {
+  #       font = "monospace:size=10";
+  #     };
+  #   };
+  # };
 
   # programs.hyprland = {
   #   enable = true;
