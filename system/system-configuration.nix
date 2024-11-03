@@ -54,8 +54,8 @@ in
     enable = true;
     # package = pkgs-hyprland.mesa.drivers;
     # package32 = pkgs-hyprland.pkgsi686Linux.mesa.drivers;
-    package = pkgs.unstable.mesa.drivers;
-    package32 = pkgs.unstable.pkgsi686Linux.mesa.drivers;
+    package = pkgs-hyprland.mesa.drivers;
+    package32 = pkgs-hyprland.pkgsi686Linux.mesa.drivers;
     driSupport = true;
     driSupport32Bit = true;
 
@@ -70,12 +70,12 @@ in
     #   driversi686Linux.amdvlk
     # ];
 
-    extraPackages = with pkgs; [
-      unstable.amdvlk
+    extraPackages = with pkgs-hyprland; [
+      amdvlk
     ];
 
-    extraPackages32 = with pkgs; [
-      unstable.driversi686Linux.amdvlk
+    extraPackages32 = with pkgs-hyprland; [
+      driversi686Linux.amdvlk
     ];
   };
   # environment.variables.AMD_VULKAN_ICD = "vulkan";
