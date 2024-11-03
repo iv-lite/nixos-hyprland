@@ -1,4 +1,5 @@
-{ config
+{ lib
+, config
 , pkgs
 , ...
 }:
@@ -16,9 +17,9 @@ let
   # '';
 in
 {
-  # environment.systemPackages = with pkgs; [
-  #   greetd.regreet
-  # ];
+  environment.systemPackages = with pkgs; [
+    cage
+  ];
 
   environment.etc = {
     "greetd/config.toml" = {
@@ -27,7 +28,7 @@ in
       group = "greeter";
     };
 
-    "greetd/regreet.toml" = {
+    "greetd/regreet.toml" = lib.mkForce {
       source = ./.config/regreet.toml;
       user = "greeter";
       group = "greeter";
@@ -65,8 +66,6 @@ in
       group = "greeter";
     };
   };
-
-  services.cage.enable = true;
 
   services.greetd = {
     enable = true;
