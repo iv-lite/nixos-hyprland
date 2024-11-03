@@ -4,17 +4,15 @@
 , ...
 }:
 let
-  # load = pkgs.writeShellScript "load" ''
-  #   export XDG_SESSION_TYPE=wayland
-  #   export QT_QPA_PLATFORM=wayland
-  #   export XDG_SESSION_DESKTOP=Hyprland
-  #   export XDG_CURRENT_DESKTOP=Hyprland
-  #   export WLR_RENDERER=vulkan
+  load = pkgs.writeShellScript "load" ''
+    export XDG_SESSION_TYPE=wayland
+    export QT_QPA_PLATFORM=wayland
+    export XDG_SESSION_DESKTOP=Hyprland
+    export XDG_CURRENT_DESKTOP=Hyprland
+    export WLR_RENDERER=vulkan
 
-  #   ${pkgs.hyprland}/bin/Hyprland --config /etc/greetd/hyprland.conf
-  #   # ${pkgs.greetd.regreet}/bin/regreet --config /etc/greetd/.config/regreet.toml
-  #   # ${pkgs.greetd.regreet}/bin/regreet
-  # '';
+    cage -s -- regreet
+  '';
 in
 {
   environment.systemPackages = with pkgs; [
@@ -73,8 +71,7 @@ in
 
     settings = {
       default_session = {
-        # command = "${load}";
-        command = "cage -s -- regreet";
+        command = "${load}";
         user = "greeter";
       };
     };
