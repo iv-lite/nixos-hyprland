@@ -42,6 +42,11 @@
       meson
       cpio
 
+      unstable.qt6Packages.qt6ct
+      qt6.qtwayland
+      qt5.qtwayland
+
+
       hyprpaper
 
       grim # screenshot functionality
