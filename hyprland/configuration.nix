@@ -43,7 +43,7 @@
       cpio
 
       libsForQt5.qt5ct
-
+      unstable.hyprland
       hyprpaper
 
       grim # screenshot functionality
@@ -88,8 +88,9 @@
 
   # programs.hyprland = {
   #   enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  #   xwayland.enable = true;
+  #   package = pkgs.hyprland;
+  #   # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #   # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  #   # xwayland.enable = true;
   # };
 }

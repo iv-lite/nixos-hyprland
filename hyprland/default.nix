@@ -6,14 +6,14 @@
 
 {
   imports = [
-    # inputs.hyprland.homeManagerModules.default
+    inputs.hyprland.homeManagerModules.default
     ./home.nix
   ];
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.unstable.hyprland;
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # package = pkgs.unstable.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
     xwayland.enable = true;
 
@@ -27,7 +27,7 @@
     '';
 
     plugins = [
-      inputs.split-monitor-workspaces.packages.${pkgs.unstable.system}.split-monitor-workspaces
+      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
     ];
   };
 
