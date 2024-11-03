@@ -80,6 +80,8 @@ in
     };
   };
 
+  services.displayManager.defaultSession = "Hyprland";
+
   # programs.regreet = {
   #   enable = true;
   #   # settings = {
