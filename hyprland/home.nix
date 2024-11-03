@@ -10,6 +10,12 @@
       recursive = true;
     };
 
+    "${config.xdg.configHome}/foot" = {
+      source = ./.config/foot;
+      recursive = true;
+    };
+
+
     "${config.xdg.configHome}/mako" = {
       source = ./.config/mako;
       recursive = true;
