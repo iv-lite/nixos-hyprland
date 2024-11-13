@@ -9,39 +9,43 @@
     inputs.hyprland.homeManagerModules.default
   ];
 
+  home.packages = with pkgs; [
+    hyprlandPlugins.hyprsplit
+  ];
+
   home.file = {
     "${config.xdg.configHome}/hypr" = {
-      source = ../../resources/.config/hypr;
+      source = ../resources/.config/hypr;
       recursive = true;
     };
 
     "${config.xdg.configHome}/foot" = {
-      source = ../../resources/.config/foot;
+      source = ../resources/.config/foot;
       recursive = true;
     };
 
     "${config.xdg.configHome}/mako" = {
-      source = ../../resources/.config/mako;
+      source = ../resources/.config/mako;
       recursive = true;
     };
 
     "${config.xdg.configHome}/tofi" = {
-      source = ../../resources/.config/tofi;
+      source = ../resources/.config/tofi;
       recursive = true;
     };
 
     "${config.xdg.configHome}/waybar" = {
-      source = ../../resources/.config/waybar;
+      source = ../resources/.config/waybar;
       recursive = true;
     };
 
     "${config.xdg.configHome}/wlogout" = {
-      source = ../../resources/.config/wlogout;
+      source = ../resources/.config/wlogout;
       recursive = true;
     };
 
     "${config.xdg.configHome}/xdg-desktop-portal" = {
-      source = ../../resources/.config/xdg-desktop-portal;
+      source = ../resources/.config/xdg-desktop-portal;
       recursive = true;
     };
   };
@@ -60,7 +64,7 @@
     systemd.variables = [ "--all" ];
 
     extraConfig = ''
-      ${builtins.readFile ../../resources/.config/hypr/hyprland.conf}
+      ${builtins.readFile ../resources/.config/hypr/hyprland.conf}
     '';
 
     plugins = [

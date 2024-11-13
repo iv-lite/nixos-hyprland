@@ -17,6 +17,7 @@
   home-manager.users.iv = {
     imports = [
       ./softwares
+      ./hyprland.nix
       ./themes
     ];
 

@@ -7,7 +7,6 @@
     ./git.nix
     ./direnv.nix
     ./vscode.nix
-    ./hyprland.nix
   ];
 
   home.packages = with pkgs; [

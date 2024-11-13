@@ -19,7 +19,6 @@
 
       libsForQt5.qt5ct
       hyprpaper
-      hyprlandPlugins.hyprsplit
 
       grim # screenshot functionality
       slurp # screenshot functionality
