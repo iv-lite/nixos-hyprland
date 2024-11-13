@@ -23,45 +23,45 @@ in
 
   environment.etc = {
     "greetd/config.toml" = {
-      source = ./.config/config.toml;
+      source = ../resources/greetd/config.toml;
       user = "greeter";
       group = "greeter";
     };
 
     "greetd/regreet.toml" = lib.mkForce {
-      source = ./.config/regreet.toml;
+      source = ../resources/greetd/regreet.toml;
       user = "greeter";
       group = "greeter";
     };
 
 
     "greetd/environments" = {
-      source = ./.config/environments;
+      source = ../resources/greetd/environments;
       user = "greeter";
       group = "greeter";
     };
 
     "greetd/sources" = {
-      source = ./.config/sources;
+      source = ../resources/greetd/sources;
       user = "greeter";
       group = "greeter";
     };
 
 
     "greetd/hyprland.conf" = {
-      source = ./.config/hyprland.conf;
+      source = ../resources/greetd/hyprland.conf;
       user = "greeter";
       group = "greeter";
     };
 
     "greetd/hyprpaper.conf" = {
-      source = ./.config/hyprpaper.conf;
+      source = ../resources/greetd/hyprpaper.conf;
       user = "greeter";
       group = "greeter";
     };
 
     "greetd/login.background.jpg" = {
-      source = ./.config/login.background.jpg;
+      source = ../resources/greetd/login.background.jpg;
       user = "greeter";
       group = "greeter";
     };
@@ -72,9 +72,7 @@ in
 
     settings = {
       default_session = {
-        # command = "cage -s -- regreet";
         command = "${load}";
-        # command = "${config.programs.regreet.package}/bin/regreet";
         user = "greeter";
       };
     };
@@ -88,9 +86,4 @@ in
     ];
     defaultSession = "hyprland";
   };
-
-  # programs.regreet = {
-  #   enable = true;
-  #   settings = lib.mkForce "/etc/greetd/regreet.toml";
-  # };
 }

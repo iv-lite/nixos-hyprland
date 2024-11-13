@@ -3,10 +3,11 @@
 , ...
 }: {
   imports = [
-    ./sources/bash.nix
-    ./sources/git.nix
-    ./sources/direnv.nix
-    ./sources/vscode.nix
+    ./bash.nix
+    ./git.nix
+    ./direnv.nix
+    ./vscode.nix
+    ./hyprland.nix
   ];
 
   home.packages = with pkgs; [

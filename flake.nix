@@ -45,9 +45,8 @@
               ;
           };
           modules = [
-            ./system/configuration.nix
+            ./system
             ./services
-            ./hyprland/configuration.nix
             ./home
           ];
         };

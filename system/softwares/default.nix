@@ -1,42 +1,17 @@
-{ inputs, config, pkgs, ... }:
-# let
-#   pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-# in
+{ config, pkgs, user, ... }:
 
 {
-  # nix.settings = {
-  #   substituters = [ "https://hyprland.cachix.org" ];
-  #   trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-  # };
-
-
-  imports = [
-    ./packages/thunar.nix
-  ];
-
-  # xdg.portal = {
-  #   enable = true;
-  #   xdgOpenUsePortal = true;
-  #   wlr.enable = true;
-  #   extraPortals = [
-  #     pkgs.xdg-desktop-portal-gtk
-  #     pkgs.xdg-desktop-portal-wlr
-  #     pkgs.xdg-desktop-portal-gnome
-  #   ];
-
-  #   config = {
-  #     common = {
-  #       default = [ "gtk" ];
-  #     };
-  #   };
-
-  #   configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
-  # };
-
   environment = {
-    sessionVariables.NIXOS_OZONE_WL = "1";
-
     systemPackages = with pkgs; [
+      vim
+      wget
+      nixpkgs-fmt
+      pkgs._1password-gui
+      vulkan-validation-layers
+      xdg-utils
+      pass-wayland
+      proton-pass
+
       libinput
       cmake
       meson
@@ -66,16 +41,25 @@
 
       foot
     ];
+
+    sessionVariables.NIXOS_OZONE_WL = "1";
+    variables.EDITOR = "vim";
   };
 
-  hardware.logitech.wireless.enable = true;
-
-  services.blueman.enable = true;
-  services.libinput.enable = true;
-  # services.hypridle.enable = true;
-
+  programs.firefox.enable = true;
   programs.hyprlock.enable = true;
   programs.light.enable = true;
+
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
+
 
   programs.hyprland = {
     enable = true;

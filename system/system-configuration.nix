@@ -46,62 +46,10 @@ in
     ];
   };
 
-  # hardware.opengl = {
-  #   enable = true;
-  #   package = pkgs.unstable.mesa.drivers;
-  #   package32 = pkgs.unstable.pkgsi686Linux.mesa.drivers;
-  #   # package = pkgs-hyprland.mesa.drivers;
-  #   # package32 = pkgs-hyprland.pkgsi686Linux.mesa.drivers;
-  #   driSupport = true;
-  #   driSupport32Bit = true;
-
-  #   extraPackages = with pkgs.unstable; [
-  #     amdvlk
-  #     vulkan-loader
-  #     vulkan-validation-layers
-  #     vulkan-extension-layer
-  #   ];
-
-  #   extraPackages32 = with pkgs.unstable; [
-  #     driversi686Linux.amdvlk
-  #   ];
-
-
-  #   # extraPackages = with pkgs; [
-  #   #   amdvlk
-  #   #   vulkan-loader
-  #   #   vulkan-validation-layers
-  #   #   vulkan-extension-layer
-  #   # ];
-
-  #   # extraPackages32 = with pkgs; [
-  #   #   driversi686Linux.amdvlk
-  #   # ];
-
-  #   # extraPackages = with pkgs-hyprland; [
-  #   #   amdvlk
-  #   #   vulkan-loader
-  #   #   vulkan-validation-layers
-  #   #   vulkan-extension-layer
-  #   # ];
-
-  #   # extraPackages32 = with pkgs-hyprland; [
-  #   #   driversi686Linux.amdvlk
-  #   # ];
-
-
-  #   # extraPackages = with pkgs-hyprland; [
-  #   #   amdvlk
-  #   # ];
-
-  #   # extraPackages32 = with pkgs-hyprland; [
-  #   #   driversi686Linux.amdvlk
-  #   # ];
-  # };
-  # environment.variables.AMD_VULKAN_ICD = "vulkan";
-
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.logitech.wireless.enable = true;
+
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

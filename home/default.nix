@@ -16,9 +16,8 @@
   home-manager.backupFileExtension = "backup";
   home-manager.users.iv = {
     imports = [
-      ./packages
+      ./softwares
       ./themes
-      ../hyprland
     ];
 
     # TODO please change the username & home direcotry to your own
