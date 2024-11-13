@@ -53,7 +53,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    # package = pkgs.hyprland;
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
     xwayland.enable = true;
@@ -64,7 +64,7 @@
     systemd.variables = [ "--all" ];
 
     extraConfig = ''
-      ${builtins.readFile ../resources/.config/hypr/hyprland.conf}
+      ${builtins.readFile ../resources/.config/hyprland.conf}
     '';
 
     plugins = [
