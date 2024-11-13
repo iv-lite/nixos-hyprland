@@ -106,7 +106,14 @@
   users.users.iv = {
     isNormalUser = true;
     description = "I.V.";
-    extraGroups = [ "networkmanager" "wheel" "video" "i2c" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "i2c"
+      "input"
+      "lpadmin"
+    ];
     packages = with pkgs; [
       #  thunderbird
     ];

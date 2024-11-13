@@ -4,6 +4,7 @@
 }: {
   imports = [
     ./greetd.nix
+    ./printing.nix
   ];
 
   services.blueman.enable = true;
