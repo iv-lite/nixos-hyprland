@@ -4,12 +4,21 @@
 , pkgs
 , ...
 }:
+let
+  load = pkgs.writeShellScript "load" ''
+    export XDG_SESSION_TYPE=wayland
+    export QT_QPA_PLATFORM=wayland
+    export XDG_SESSION_DESKTOP=Hyprland
+    export XDG_CURRENT_DESKTOP=Hyprland
+    export WLR_RENDERER=vulkan
+
+    ${pkgs.hyprland}/bin/Hyprland --config /etc/greetd/hyprland.conf
+  '';
+in
 {
   environment.systemPackages = with pkgs; [
-    cage
+    #   # cage
     greetd.regreet
-    # cage
-    # greetd.regreet
   ];
 
   environment.etc = {
@@ -19,7 +28,7 @@
       group = "greeter";
     };
 
-    "greetd/regreet.toml" = {
+    "greetd/regreet.toml" = lib.mkForce {
       source = ./.config/regreet.toml;
       user = "greeter";
       group = "greeter";
@@ -63,7 +72,9 @@
 
     settings = {
       default_session = {
-        command = "cage -s -- regreet";
+        # command = "cage -s -- regreet";
+        command = "${load}";
+        # command = "${config.programs.regreet.package}/bin/regreet";
         user = "greeter";
       };
     };
@@ -80,28 +91,6 @@
 
   # programs.regreet = {
   #   enable = true;
-  #   # settings = {
-  #   #   background = {
-  #   #     path = "/etc/greetd/login.background.jpg";
-  #   #     fit = "cover";
-  #   #   };
-
-  #   #   GTK = pkgs.lib.mkForce {
-  #   #     application_prefer_dark_theme = true;
-  #   #     font_name = "FontAwesome";
-  #   #     cursor_theme_name = "Adwaita";
-  #   #     icon_theme_name = "Papirus-Dark";
-  #   #     theme_name = "Arc-Dark";
-  #   #   };
-
-  #   #   commands = {
-  #   #     reboot = [ "systemctl" "reboot" ];
-  #   #     poweroff = [ "systemctl" "poweroff" ];
-  #   #   };
-
-  #   #   appearance = {
-  #   #     greeting_msg = "Lite-Desk";
-  #   #   };
-  #   # };
+  #   settings = lib.mkForce "/etc/greetd/regreet.toml";
   # };
 }
