@@ -3,6 +3,9 @@
 , ...
 }:
 {
+  environment.systemPackages = with pkgs; [
+    hplip
+  ];
   services.printing = {
     enable = true;
     drivers = [
