@@ -53,8 +53,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = pkgs.hyprland;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = pkgs.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
     xwayland.enable = true;
 
@@ -68,7 +68,7 @@
     '';
 
     plugins = [
-      inputs.hyprland-plugins.packages."${pkgs.system}".hyprsplit
+      pkgs.hyprlandPlugins.hyprsplit
     ];
   };
 
