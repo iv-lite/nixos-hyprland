@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ inputs, config, pkgs, user, ... }:
 
 {
   environment = {
@@ -19,7 +19,6 @@
 
       libsForQt5.qt5ct
       hyprpaper
-      hyprlandPlugins.hyprsplit
 
       grim # screenshot functionality
       slurp # screenshot functionality
@@ -63,9 +62,9 @@
 
   programs.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    # package = pkgs.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # xwayland.enable = true;
   };
 }
