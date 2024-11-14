@@ -68,7 +68,7 @@
     '';
 
     plugins = [
-      pkgs.hyprlandPlugins.hyprsplit
+      inputs.hyprland-plugins.packages."${pkgs.system}".hyprsplit
     ];
   };
 
