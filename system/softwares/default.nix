@@ -35,7 +35,6 @@
       pavucontrol
       solaar
       logitech-udev-rules
-      cider
       cava
 
       foot
