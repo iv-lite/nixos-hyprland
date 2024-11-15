@@ -44,6 +44,12 @@
       recursive = true;
     };
 
+    "${config.xdg.configHome}/wayland-pipewire-idle-inhibit" = {
+      source = ../resources/.config/wayland-pipewire-idle-inhibit;
+      recursive = true;
+    };
+
+
     "${config.xdg.configHome}/xdg-desktop-portal" = {
       source = ../resources/.config/xdg-desktop-portal;
       recursive = true;
