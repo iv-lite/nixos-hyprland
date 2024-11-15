@@ -49,6 +49,7 @@ in
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.logitech.wireless.enable = true;
+  hardware.brillo.enable = true;
 
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
