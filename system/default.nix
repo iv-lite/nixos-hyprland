@@ -112,7 +112,6 @@
       "video"
       "i2c"
       "input"
-      "lpadmin"
     ];
     packages = with pkgs; [
       #  thunderbird
