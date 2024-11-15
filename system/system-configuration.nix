@@ -23,6 +23,7 @@ in
   ];
   boot.kernelParams = [
     "amdgpu.backlight=0"
+    "acpi_backlight=video"
   ];
 
 
