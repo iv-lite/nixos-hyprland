@@ -11,6 +11,7 @@
       xdg-utils
       pass-wayland
       proton-pass
+      wayland-pipewire-idle-inhibit
 
       libinput
       cmake
