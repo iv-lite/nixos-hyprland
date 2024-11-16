@@ -13,6 +13,7 @@
       proton-pass
       wayland-pipewire-idle-inhibit
       ddcutil
+      brightnessctl
 
       libinput
       cmake
