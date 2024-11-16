@@ -12,6 +12,7 @@
       pass-wayland
       proton-pass
       wayland-pipewire-idle-inhibit
+      ddcutil
 
       libinput
       cmake

@@ -16,18 +16,18 @@ in
     "amdgpu"
   ];
   boot.extraModulePackages = [
-    # config.boot.kernelPackages.ddcci-driver 
+    config.boot.kernelPackages.ddcci-driver
   ];
   boot.kernelModules = [
     "kvm-intel"
+    "i2c-dev"
+    "ddcci_backlight"
   ];
   boot.kernelParams = [
     "amdgpu.backlight=0"
-    "acpi_backlight=video"
   ];
 
 
-  # hardware.i2c.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -47,6 +47,7 @@ in
     ];
   };
 
+  hardware.i2c.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.logitech.wireless.enable = true;
