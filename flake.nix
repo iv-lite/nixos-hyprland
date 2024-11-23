@@ -35,7 +35,7 @@
       # Used with `nixos-rebuild --flake .#<hostname>`
       # nixosConfigurations."<hostname>".config.system.build.toplevel must be>
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        nixos-z690 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
             inherit
@@ -45,8 +45,11 @@
               ;
           };
           modules = [
-            ./system
+            ./hosts/z690
+            ./security
             ./services
+            ./softwares
+            ./fonts
             ./home
           ];
         };
