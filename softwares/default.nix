@@ -38,7 +38,7 @@
       pavucontrol
       solaar
       logitech-udev-rules
-      # cava
+      cava
 
       foot
     ];
