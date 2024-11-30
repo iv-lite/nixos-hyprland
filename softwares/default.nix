@@ -39,6 +39,7 @@
       solaar
       logitech-udev-rules
       # cava
+      youtube-music
 
       foot
     ];
