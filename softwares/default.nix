@@ -11,6 +11,8 @@
       xdg-utils
       pass-wayland
       proton-pass
+      protonmail-desktop
+
       wayland-pipewire-idle-inhibit
       ddcutil
       brightnessctl
