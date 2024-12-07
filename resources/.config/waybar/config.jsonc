@@ -175,28 +175,34 @@
     "modules": [
         "custom/power", // First element is the "group leader" and won't ever be hidden
         "custom/quit",
+        "custom/hibernate",
         "custom/lock",
-        "custom/reboot",
+        "custom/reboot"
     ]
   },
   "custom/quit": {
-    "format": "󰗼",
+    "format": "⎋",
     "tooltip": false,
     "on-click": "hyprctl dispatch exit"
   },
+  "custom/hibernate": {
+    "format": "⏾",
+    "tooltip": false,
+    "on-click": "systemctl hibernate"
+  },
   "custom/lock": {
-      "format": "󰍁",
-      "tooltip": false,
-      "on-click": "swaylock"
+    "format": "⚿",
+    "tooltip": false,
+    "on-click": "hyprlock"
   },
   "custom/reboot": {
-      "format": "󰜉",
-      "tooltip": false,
-      "on-click": "reboot"
+    "format": "↺",
+    "tooltip": false,
+    "on-click": "reboot"
   },
   "custom/power": {
-      "format": "",
-      "tooltip": false,
-      "on-click": "shutdown now"
+    "format": "⏻",
+    "tooltip": false,
+    "on-click": "shutdown now"
   }
 }
