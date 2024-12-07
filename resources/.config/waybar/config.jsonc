@@ -23,7 +23,7 @@
     "clock",
     // "keyboard-state",
     "tray",
-    "group/power"
+    "group/group-power"
   ],
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -165,12 +165,12 @@
     "escape": true,
     "exec": "$HOME/.config/waybar/media/player.py 2> /dev/null"
   },
-  "group/power": {
+  "group/group-power": {
     "orientation": "inherit",
     "drawer": {
         "transition-duration": 500,
-        "children-class": "not-power",
-        "transition-left-to-right": false,
+        "children-class": "drawer-child",
+        "transition-left-to-right": false
     },
     "modules": [
         "custom/power", // First element is the "group leader" and won't ever be hidden
@@ -201,7 +201,7 @@
     "on-click": "reboot"
   },
   "custom/power": {
-    "format": "⏻",
+    "format": "⏻ ",
     "tooltip": false,
     "on-click": "shutdown now"
   }
