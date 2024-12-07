@@ -69,8 +69,8 @@
     }
   },
   "tray": {
-    // "icon-size": 21,
-    "spacing": 10
+    "icon-size": 16,
+    "spacing": 8
   },
   "clock": {
     "timezone": "Europe/Zurich",
