@@ -21,6 +21,7 @@
       cmake
       meson
       cpio
+      xarchiver
 
       libsForQt5.qt5ct
       hyprpaper
