@@ -53,6 +53,7 @@
   programs.firefox.enable = true;
   programs.hyprlock.enable = true;
   programs.light.enable = true;
+  programs.gnome-disks.enable = true;
 
   programs.thunar = {
     enable = true;
