@@ -7,4 +7,5 @@ if [ -z "${host}" ]; then
     exit 1
 fi
 
-sudo nixos-generate-config --root ./hosts/${host}
+sudo nixos-generate-config --force --dir ./hosts/${host}
+sudo rm  ./hosts/${host}/configuration.nix
