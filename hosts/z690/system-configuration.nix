@@ -27,8 +27,11 @@ in
     "amdgpu.backlight=0"
   ];
 
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # enable trim for ssd
+  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
