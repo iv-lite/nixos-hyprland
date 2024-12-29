@@ -9,3 +9,4 @@ fi
 
 sudo nixos-generate-config --force --dir ./hosts/${host}
 sudo rm  ./hosts/${host}/configuration.nix
+sudo chown ${USER}:users ./hosts/${host}/hardware-configuration.nix
