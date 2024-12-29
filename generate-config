@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+host=$1
+
+if [ -z "${host}" ]; then
+    echo "Please specify a host"
+    exit 1
+fi
+
+sudo nixos-generate-config --root ./hosts/${host}
