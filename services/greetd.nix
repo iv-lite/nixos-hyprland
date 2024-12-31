@@ -84,6 +84,6 @@ in
     sessionPackages = [
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
     ];
-    defaultSession = "hyprland";
+    defaultSession = "Hyprland";
   };
 }
