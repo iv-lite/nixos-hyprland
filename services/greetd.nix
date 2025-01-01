@@ -17,9 +17,17 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    #   # cage
     greetd.regreet
   ];
+
+  services.displayManager = {
+    enable = true;
+
+    sessionPackages = [
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
+    ];
+    defaultSession = "Hyprland";
+  };
 
   environment.etc = {
     "greetd/config.toml" = {
@@ -77,13 +85,4 @@ in
       };
     };
   };
-
-  # services.displayManager = {
-  #   enable = true;
-
-  #   sessionPackages = [
-  #     inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
-  #   ];
-  #   defaultSession = "Hyprland";
-  # };
 }
