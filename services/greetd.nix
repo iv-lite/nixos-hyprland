@@ -78,12 +78,12 @@ in
     };
   };
 
-  services.displayManager = {
-    enable = true;
+  # services.displayManager = {
+  #   enable = true;
 
-    sessionPackages = [
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
-    ];
-    defaultSession = "Hyprland";
-  };
+  #   sessionPackages = [
+  #     inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
+  #   ];
+  #   defaultSession = "Hyprland";
+  # };
 }
