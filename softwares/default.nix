@@ -41,10 +41,11 @@
       pavucontrol
       solaar
       logitech-udev-rules
-      # cava
+      cava
       youtube-music
 
       foot
+      vscode-fhs
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -66,6 +67,8 @@
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 
+  programs.dconf.enable = true;
+
 
   programs.hyprland = {
     enable = true;
@@ -73,5 +76,11 @@
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     # xwayland.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    xdgOpenUsePortal = true;
   };
 }

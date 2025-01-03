@@ -111,8 +111,6 @@
     ];
   };
 
-  programs.dconf.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [

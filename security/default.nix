@@ -3,6 +3,7 @@
 {
 
   environment.systemPackages = with pkgs; [
+    libsecret
     polkit
     polkit_gnome
   ];
@@ -25,5 +26,8 @@
   };
 
   services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
 }
