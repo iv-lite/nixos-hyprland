@@ -16,27 +16,11 @@ let
   '';
 in
 {
-  # environment.systemPackages = with pkgs; [
-  #   greetd.regreet
-  #   cage
-  # ];
-
-  services.displayManager = {
-    enable = true;
-
-    sessionPackages = [
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
-    ];
-    defaultSession = "Hyprland";
-  };
+  environment.systemPackages = with pkgs; [
+    cage
+  ];
 
   environment.etc = {
-    # "greetd/config.toml" = {
-    #   source = ../resources/greetd/config.toml;
-    #   user = "greeter";
-    #   group = "greeter";
-    # };
-
     "greetd/regreet.toml" = lib.mkForce {
       source = ../resources/greetd/regreet.toml;
       user = "greeter";
@@ -59,11 +43,6 @@ in
         user = "greeter";
       };
     };
-  };
-
-  services.cage = {
-    enable = true;
-    user = "greeter";
   };
   programs.regreet.enable = true;
 }
