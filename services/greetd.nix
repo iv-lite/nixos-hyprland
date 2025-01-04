@@ -18,6 +18,7 @@ in
 {
   # environment.systemPackages = with pkgs; [
   #   greetd.regreet
+  #   cage
   # ];
 
   services.displayManager = {
@@ -30,40 +31,14 @@ in
   };
 
   environment.etc = {
-    "greetd/config.toml" = {
-      source = ../resources/greetd/config.toml;
-      user = "greeter";
-      group = "greeter";
-    };
+    # "greetd/config.toml" = {
+    #   source = ../resources/greetd/config.toml;
+    #   user = "greeter";
+    #   group = "greeter";
+    # };
 
     "greetd/regreet.toml" = lib.mkForce {
       source = ../resources/greetd/regreet.toml;
-      user = "greeter";
-      group = "greeter";
-    };
-
-
-    "greetd/environments" = {
-      source = ../resources/greetd/environments;
-      user = "greeter";
-      group = "greeter";
-    };
-
-    "greetd/sources" = {
-      source = ../resources/greetd/sources;
-      user = "greeter";
-      group = "greeter";
-    };
-
-
-    "greetd/hyprland.conf" = {
-      source = ../resources/greetd/hyprland.conf;
-      user = "greeter";
-      group = "greeter";
-    };
-
-    "greetd/hyprpaper.conf" = {
-      source = ../resources/greetd/hyprpaper.conf;
       user = "greeter";
       group = "greeter";
     };
@@ -80,11 +55,16 @@ in
 
     settings = {
       default_session = {
-        command = "${load}";
+        command = "${pkgs.cage}/bin/cage -s -mlast -- ${pkgs.greetd.regreet}/bin/regreet";
         user = "greeter";
       };
     };
   };
 
+  services.cage = {
+    enable = true;
+    user = "greeter";
+  };
   programs.regreet.enable = true;
 }
+
