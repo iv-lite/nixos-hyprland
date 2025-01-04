@@ -16,9 +16,9 @@ let
   '';
 in
 {
-  environment.systemPackages = with pkgs; [
-    greetd.regreet
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   greetd.regreet
+  # ];
 
   services.displayManager = {
     enable = true;
@@ -85,4 +85,6 @@ in
       };
     };
   };
+
+  programs.regreet.enable = true;
 }
