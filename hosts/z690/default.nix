@@ -105,6 +105,7 @@
       "video"
       "i2c"
       "input"
+      "podman"
     ];
     packages = with pkgs; [
       #  thunderbird
