@@ -22,6 +22,7 @@
 
     # media
     cider
+    hyprshot
 
     # system tools
     sysstat
