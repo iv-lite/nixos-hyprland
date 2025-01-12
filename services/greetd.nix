@@ -39,6 +39,11 @@ in
       group = "greeter";
     };
 
+    "greetd/hyprpaper.conf" = {
+      source = ../resources/greetd/hyprpaper.conf;
+      user = "greeter";
+      group = "greeter";
+    };
 
     "greetd/login.background.jpg" = {
       source = ../resources/greetd/login.background.jpg;
