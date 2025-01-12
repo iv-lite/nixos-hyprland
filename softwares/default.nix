@@ -25,6 +25,7 @@
 
       libsForQt5.qt5ct
       hyprpaper
+      hyprpicker
 
       grim # screenshot functionality
       slurp # screenshot functionality
@@ -46,6 +47,7 @@
 
       discord
       foot
+      ghostty
       vscode-fhs
 
       # Useful for virtualisation

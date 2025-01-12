@@ -24,6 +24,12 @@
       recursive = true;
     };
 
+    "${config.xdg.configHome}/ghostty" = {
+      source = ../resources/.config/ghostty;
+      recursive = true;
+    };
+
+
     "${config.xdg.configHome}/mako" = {
       source = ../resources/.config/mako;
       recursive = true;
