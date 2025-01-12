@@ -17,7 +17,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    cage
+    greetd.regreet
   ];
 
   environment.etc = {
@@ -33,6 +33,13 @@ in
       group = "greeter";
     };
 
+    "greetd/monitors.conf" = {
+      source = ../resources/greetd/monitors.conf;
+      user = "greeter";
+      group = "greeter";
+    };
+
+
     "greetd/login.background.jpg" = {
       source = ../resources/greetd/login.background.jpg;
       user = "greeter";
@@ -40,7 +47,7 @@ in
     };
   };
 
-  services.displayManager.defaultSession = "hyprland-uwsm";
+  services.displayManager.defaultSession = "hyprland";
 
   services.greetd = {
     enable = true;
