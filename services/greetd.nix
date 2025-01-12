@@ -27,6 +27,12 @@ in
       group = "greeter";
     };
 
+    "greetd/hyprland.conf" = {
+      source = ../resources/greetd/hyprland.conf;
+      user = "greeter";
+      group = "greeter";
+    };
+
     "greetd/login.background.jpg" = {
       source = ../resources/greetd/login.background.jpg;
       user = "greeter";
@@ -39,7 +45,7 @@ in
 
     settings = {
       default_session = {
-        command = "${pkgs.cage}/bin/cage -s -mlast -- ${pkgs.greetd.regreet}/bin/regreet";
+        command = "${pkgs.hyprland}/bin/Hyprland --config /etc/greetd/hyprland.conf";
         user = "greeter";
       };
     };
