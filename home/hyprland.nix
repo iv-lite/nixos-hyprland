@@ -66,8 +66,8 @@
 
     # # Optional
     # # Whether to enable hyprland-session.target on hyprland startup
-    systemd.enable = true;
-    systemd.variables = [ "--all" ];
+    # systemd.enable = true;
+    # systemd.variables = [ "--all" ];
 
     extraConfig = ''
       ${builtins.readFile ../resources/.config/hyprland.conf}

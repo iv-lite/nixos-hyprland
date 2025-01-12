@@ -40,6 +40,8 @@ in
     };
   };
 
+  services.displayManager.defaultSession = "hyprland-uwsm";
+
   services.greetd = {
     enable = true;
 
