@@ -46,6 +46,9 @@
       youtube-music
 
       discord
+      lutris
+      heroic
+
       foot
       ghostty
       vscode-fhs
