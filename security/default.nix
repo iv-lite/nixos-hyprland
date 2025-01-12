@@ -27,7 +27,20 @@
 
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
+
   security.pam.services.greetd.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
-  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
+
+  services.fprintd = {
+    enable = true;
+    package = pkgs.fprintd-tod;
+    tod = {
+      enable = true;
+      driver = pkgs.libfprint-2-tod1-vfs0090;
+    };
+  };
+
+  security.pam.services.greetd.fprintAuth = true;
+  security.pam.services.login.fprintAuth = true;
+  security.pam.services.hyprlock.fprintAuth = true;
 }
