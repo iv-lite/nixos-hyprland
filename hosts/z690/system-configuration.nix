@@ -57,6 +57,8 @@ in
   hardware.logitech.wireless.enable = true;
   hardware.brillo.enable = true;
   hardware.xone.enable = true; # enables support for xbox controller
+  hardware.steam-hardware.enable = true; # enables support for steam udev controllers 
+
 
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
