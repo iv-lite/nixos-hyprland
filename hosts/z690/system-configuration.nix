@@ -56,6 +56,7 @@ in
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.logitech.wireless.enable = true;
   hardware.brillo.enable = true;
+  hardware.xone.enable = true; # enables support for xbox controller
 
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
