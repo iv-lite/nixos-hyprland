@@ -6,6 +6,7 @@
     ./bash.nix
     ./git.nix
     ./direnv.nix
+    ./rofi.nix
   ];
 
   home.packages = with pkgs; [
