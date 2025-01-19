@@ -13,6 +13,10 @@
     enable = true;
     cycle = true;
     terminal = "${pkgs.ghostty}/bin/ghostty";
+
+    theme = "nord";
+    font = "Noto Sans Mono";
+
     plugins = [
       pkgs.rofi-calc
       pkgs.rofi-emoji
@@ -33,7 +37,5 @@
       display-window = "";
       display-combi = "";
     };
-
-    theme = "nord";
   };
 }
