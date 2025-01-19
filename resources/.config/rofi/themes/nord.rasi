@@ -34,7 +34,7 @@
     
     highlight:     underline bold #eceff4;
 
-    transparent: rgba(46,52,64,0);
+    transparent:#2e3440;
 }
 
 window {
@@ -93,7 +93,6 @@ listview {
     dynamic: false;
 
 	lines: 6;
-	columns: 2;
 }
 
 element {
