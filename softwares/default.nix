@@ -5,7 +5,7 @@
     systemPackages = with pkgs; [
       vim
       wget
-      nixpkgs-fmt
+      nixfmt-rfc-style
       pkgs._1password-gui
       vulkan-validation-layers
       xdg-utils
