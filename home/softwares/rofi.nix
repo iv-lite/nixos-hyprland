@@ -9,6 +9,14 @@
     };
   };
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      rofi-calc = prev.rofi-calc.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+      rofi-emoji = prev.rofi-emoji.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+      rofi-systemd = prev.rofi-systemd.override { rofi-unwrapped = prev.rofi-wayland-unwrapped; };
+    })
+  ];
+
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -22,14 +30,13 @@
     plugins = with pkgs; [
       (rofi-calc.override { rofi-unwrapped = rofi-wayland-unwrapped; })
 
-      rofi-emoji
       rofi-systemd
     ];
 
     extraConfig = {
       show-icons = false;
       kb-cancel = "Escape,Super+space";
-      modi = "drun,run,combi,window,ssh,filebrowser,calc,emoji";
+      modi = "drun,run,combi,window,ssh,filebrowser,calc";
       sort = true;
 
       line-margin = 10;
