@@ -30,13 +30,15 @@
     plugins = with pkgs; [
       (rofi-calc.override { rofi-unwrapped = rofi-wayland-unwrapped; })
 
+      rofimoji
+
       rofi-systemd
     ];
 
     extraConfig = {
       show-icons = false;
       kb-cancel = "Escape,Super+space";
-      modi = "drun,run,combi,window,ssh,filebrowser,calc";
+      modi = "drun,run,combi,window,ssh,filebrowser,calc,emoji:rofimoji";
       sort = true;
 
       line-margin = 10;

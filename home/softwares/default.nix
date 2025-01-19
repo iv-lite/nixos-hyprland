@@ -1,7 +1,9 @@
-{ config
-, pkgs
-, ...
-}: {
+{
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./bash.nix
     ./git.nix
@@ -20,6 +22,7 @@
 
     # productivity
     glow # markdown previewer in terminal
+    rofimoji # emoji for rofi
 
     # media
     cider
