@@ -11,6 +11,8 @@
 
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi-wayland;
+
     cycle = true;
     terminal = "${pkgs.ghostty}/bin/ghostty";
 
