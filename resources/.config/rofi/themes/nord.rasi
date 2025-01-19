@@ -49,6 +49,7 @@ window {
     spacing: 0;
     children:  [mainbox];
     orientation: horizontal;
+    width: 30%;
 }
 
 mainbox {
@@ -90,6 +91,9 @@ listview {
     border: 0px 1px 1px 1px;
     background-color: rgba(46,52,64,0.9);
     dynamic: false;
+
+	lines: 6;
+	columns: 2;
 }
 
 element {

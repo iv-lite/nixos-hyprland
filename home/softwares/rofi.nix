@@ -24,6 +24,14 @@
           kb-cancel = "Escape,Super+space";
           modi = "combi,window,run,drun,ssh,filebrowser,calc,emoji";
           sort = true;
+
+          line-margin =10;
+
+          display-ssh =   "";
+          display-run =   "";
+          display-drun =  "";
+          display-window ="";
+          display-combi = "";
         };
 
         theme = "nord";
