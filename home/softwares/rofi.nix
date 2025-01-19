@@ -24,7 +24,7 @@
     ];
 
     extraConfig = {
-      show-icons = true;
+      show-icons = false;
       kb-cancel = "Escape,Super+space";
       modi = "drun,run,combi,window,ssh,filebrowser,calc,emoji";
       sort = true;
