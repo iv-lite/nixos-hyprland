@@ -15,7 +15,7 @@
     terminal = "${pkgs.ghostty}/bin/ghostty";
 
     theme = "nord";
-    font = "Noto Sans Mono";
+    font = "FontAwesome";
 
     plugins = [
       pkgs.rofi-calc
