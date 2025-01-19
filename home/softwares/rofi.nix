@@ -19,10 +19,11 @@
     theme = "nord";
     font = "FontAwesome";
 
-    plugins = [
-      pkgs.rofi-calc
-      pkgs.rofi-emoji
-      pkgs.rofi-systemd
+    plugins = with pkgs; [
+      (rofi-calc.override { rofi-unwrapped = rofi-wayland-unwrapped; })
+
+      rofi-emoji
+      rofi-systemd
     ];
 
     extraConfig = {
