@@ -78,6 +78,7 @@
   programs.light.enable = true;
   programs.gnome-disks.enable = true;
 
+  programs.xfconf.enable = true;
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
