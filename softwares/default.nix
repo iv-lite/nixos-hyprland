@@ -59,7 +59,7 @@
 
       foot
       ghostty
-      vscode-fhs
+      unstable.vscode-fhs
 
       # Useful for virtualisation
       podman-desktop
