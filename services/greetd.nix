@@ -1,8 +1,9 @@
-{ lib
-, inputs
-, config
-, pkgs
-, ...
+{
+  lib,
+  inputs,
+  config,
+  pkgs,
+  ...
 }:
 let
   load = pkgs.writeShellScript "load" ''
@@ -12,7 +13,10 @@ let
     export XDG_CURRENT_DESKTOP=Hyprland
     export WLR_RENDERER=vulkan
 
-    ${pkgs.hyprland}/bin/Hyprland --config /etc/greetd/hyprland.conf
+    export HYPRCURSOR_THEME=Adwaita
+    export HYPRCURSOR_SIZE=24
+
+    ${pkgs.uwsm}/bin/uwsm app -- ${pkgs.hyprland}/bin/Hyprland --config /etc/greetd/hyprland.conf
   '';
 in
 {
@@ -52,7 +56,7 @@ in
     };
   };
 
-  services.displayManager.defaultSession = "hyprland";
+  # services.displayManager.defaultSession = "hyprland";
 
   services.greetd = {
     enable = true;
@@ -66,4 +70,3 @@ in
   };
   programs.regreet.enable = true;
 }
-

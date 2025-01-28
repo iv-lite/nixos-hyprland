@@ -1,7 +1,8 @@
-{ inputs
-, config
-, pkgs
-, ...
+{
+  inputs,
+  config,
+  pkgs,
+  ...
 }:
 
 {
@@ -14,6 +15,11 @@
   ];
 
   home.file = {
+    "${config.xdg.configHome}/uwsm" = {
+      source = ../resources/.config/uwsm;
+      recursive = true;
+    };
+
     "${config.xdg.configHome}/hypr" = {
       source = ../resources/.config/hypr;
       recursive = true;
@@ -28,7 +34,6 @@
       source = ../resources/.config/ghostty;
       recursive = true;
     };
-
 
     "${config.xdg.configHome}/mako" = {
       source = ../resources/.config/mako;
@@ -55,13 +60,11 @@
       recursive = true;
     };
 
-
     "${config.xdg.configHome}/xdg-desktop-portal" = {
       source = ../resources/.config/xdg-desktop-portal;
       recursive = true;
     };
   };
-
 
   wayland.windowManager.hyprland = {
     enable = true;
