@@ -21,6 +21,8 @@
             ScreenWidth = 1920;
             ScreenHeight = 1080;
             FormPosition = "left";
+            BackgroundColor = "#2F343F";
+            AccentColor = "white";
             HaveFormBackground = true;
             PartialBlur = true;
             Font = "FontAwesome";
