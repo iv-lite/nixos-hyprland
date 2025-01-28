@@ -37,7 +37,8 @@ in
     "ddcci_backlight"
   ];
   boot.kernelParams = [
-    "amdgpu.backlight=0"
+    "acpi_backlight=vendor"
+    "video.use_native_backlight=1"
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
