@@ -2,19 +2,19 @@
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sddm-sugar-candy-nix = {
+      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+      # Optional, by default this flake follows nixpkgs-unstable.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland = {
-    #   type = "git";
-    #   url = "https://github.com/hyprwm/Hyprland";
-    #   submodules = true;
-    # };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -22,11 +22,13 @@
   };
 
   outputs =
-    inputs@{ nixpkgs
-    , nixpkgs-unstable
-    , home-manager
-    , hyprland
-    , ...
+    inputs@{
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      hyprland,
+      sddm-sugar-candy-nix,
+      ...
     }:
     let
       system = "x86_64-linux";
@@ -45,6 +47,14 @@
               ;
           };
           modules = [
+            sddm-sugar-candy-nix.nixosModules.default
+            {
+              nixpkgs = {
+                overlays = [
+                  sddm-sugar-candy-nix.overlays.default
+                ];
+              };
+            }
             ./hosts/z690
             ./security
             ./services

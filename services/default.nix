@@ -1,9 +1,11 @@
-{ config
-, pkgs
-, ...
-}: {
+{
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
-    ./greetd.nix
+    ./display-manager.nix
     ./printing.nix
   ];
 
