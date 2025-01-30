@@ -30,7 +30,6 @@
       cmake
       meson
       cpio
-      xarchiver
 
       libsForQt5.qt5ct
       hyprpaper
@@ -80,6 +79,7 @@
   programs.gnome-disks.enable = true;
 
   programs.xfconf.enable = true;
+  programs.file-roller.enable = true;
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
