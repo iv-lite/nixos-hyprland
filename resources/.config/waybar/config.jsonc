@@ -23,6 +23,7 @@
     "backlight",
     "clock",
     "network",
+    "bluetooth",
     "tray",
     "custom/power"
   ],
@@ -169,6 +170,12 @@
       ]
     },
     "on-click": "pavucontrol"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-off": "",
+    "on-click": "blueberry",
+    "tooltip-format": "{status}"
   },
   "custom/media": {
     "format": "{icon} {}",
