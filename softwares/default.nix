@@ -38,6 +38,7 @@
       grim # screenshot functionality
       slurp # screenshot functionality
       wlogout
+      waybar
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       mako # notification system developed by swaywm maintainer
       pamixer
@@ -77,7 +78,6 @@
   programs.hyprlock.enable = true;
   programs.light.enable = true;
   programs.gnome-disks.enable = true;
-  programs.waybar.enable = true;
   programs.xfconf.enable = true;
   programs.file-roller.enable = true;
   programs.thunar = {
