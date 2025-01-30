@@ -101,13 +101,13 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    margin: 0 1rem;
+    margin: 0 .5rem;
     color: #ffffff;
 }
 
 #window,
 #workspaces {
-    margin: 0 1rem;
+    margin: 0 .5rem;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
