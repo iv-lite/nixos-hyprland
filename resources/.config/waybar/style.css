@@ -107,7 +107,7 @@ button:hover {
 
 #window,
 #workspaces {
-    margin: 0 .5rem;
+    margin: 0 .2rem;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

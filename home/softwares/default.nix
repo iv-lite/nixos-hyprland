@@ -35,4 +35,6 @@
     pciutils # lspci
     usbutils # lsusb
   ];
+
+  programs.waybar.enable = true;
 }
