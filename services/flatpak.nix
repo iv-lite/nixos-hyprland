@@ -7,12 +7,7 @@
   services.flatpak = {
     enable = true;
     update.onActivation = true;
-    packages = [
-      {
-        appId = "com.discordapp.Discord";
-        origin = "flathub";
-      }
-    ];
+    packages = [ ];
     overrides = {
       global = {
         # Force Wayland by default

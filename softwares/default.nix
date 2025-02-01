@@ -53,6 +53,7 @@
       cava
       youtube-music
 
+      discord-ptb
       lutris
       heroic
 
