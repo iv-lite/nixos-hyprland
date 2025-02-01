@@ -13,6 +13,7 @@
 
   home.packages = with pkgs; [
     neofetch
+    jq
 
     # nix related
     #
