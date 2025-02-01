@@ -53,7 +53,10 @@
       cava
       youtube-music
 
-      discord-ptb
+      nodejs
+      nodePackages.npm
+
+      discord
       lutris
       heroic
 
@@ -70,6 +73,7 @@
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables.ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
     variables.EDITOR = "vim";
   };
 
