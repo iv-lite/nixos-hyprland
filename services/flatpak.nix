@@ -6,8 +6,12 @@
 {
   services.flatpak = {
     enable = true;
+    update.onActivation = true;
     packages = [
-      "com.discordapp.Discord"
+      {
+        appId = "com.discordapp.Discord";
+        origin = "flathub";
+      }
     ];
   };
 }
