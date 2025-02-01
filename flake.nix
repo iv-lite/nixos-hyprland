@@ -19,6 +19,8 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.2";
   };
 
   outputs =
@@ -28,6 +30,7 @@
       home-manager,
       hyprland,
       sddm-sugar-candy-nix,
+      nix-flatpak,
       ...
     }:
     let
@@ -48,6 +51,7 @@
           };
           modules = [
             sddm-sugar-candy-nix.nixosModules.default
+            nix-flatpak.nixosModules.nix-flatpak
             {
               nixpkgs = {
                 overlays = [

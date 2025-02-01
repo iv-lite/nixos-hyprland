@@ -53,7 +53,6 @@
       cava
       youtube-music
 
-      discord
       lutris
       heroic
 

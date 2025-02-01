@@ -6,6 +6,7 @@
 {
   imports = [
     ./display-manager.nix
+    ./flatpak.nix
     ./printing.nix
   ];
 
