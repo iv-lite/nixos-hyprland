@@ -8,6 +8,10 @@
 }:
 
 {
+  imports = [
+    ./discord.nix
+  ];
+
   environment = {
     systemPackages = with pkgs; [
       vim
