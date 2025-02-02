@@ -60,7 +60,6 @@
       nodejs
       nodePackages.npm
 
-      discord
       lutris
       heroic
 

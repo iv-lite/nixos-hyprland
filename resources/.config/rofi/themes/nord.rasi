@@ -102,7 +102,6 @@ element {
     background-color: transparent;
     color: @foreground;
     text-color: rgb(216, 222, 233);
-    text-transform: uppercase;
 }
 
 element selected.normal {
