@@ -1,16 +1,16 @@
-{ config
-, pkgs
-, nixpkgs-unstable
-, user
-, ...
+{
+  config,
+  pkgs,
+  nixpkgs-unstable,
+  user,
+  ...
 }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./system-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./system-configuration.nix
+  ];
 
   # Bootloader.
 
@@ -122,10 +122,12 @@
     })
   ];
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # xdg.portal.enable = true;
   # xdg.portal.wlr.enable = true;

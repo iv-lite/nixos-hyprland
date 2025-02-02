@@ -2,6 +2,10 @@
 
 host=$1
 
+if [ -n "$(ls -A ./hosts/${HOSTNAME})" ]; then
+    host=${HOSTNAME}
+fi
+
 if [ -z "${host}" ]; then
     echo "Please specify a host"
     exit 1
