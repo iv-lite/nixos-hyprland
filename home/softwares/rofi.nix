@@ -25,7 +25,7 @@
     terminal = "${pkgs.ghostty}/bin/ghostty";
 
     theme = "nord";
-    font = "FontAwesome";
+    font = "monospace";
 
     plugins = with pkgs; [
       (rofi-calc.override { rofi-unwrapped = rofi-wayland-unwrapped; })
