@@ -26,7 +26,7 @@ in
     "sd_mod"
   ];
   boot.initrd.kernelModules = [
-    "amdgpu"
+    # "amdgpu"
   ];
   boot.extraModulePackages = [
     # config.boot.kernelPackages.ddcci-driver
@@ -37,8 +37,7 @@ in
     "ddcci_backlight"
   ];
   boot.kernelParams = [
-    "acpi_backlight=vendor"
-    "video.use_native_backlight=1"
+    "acpi_backlight=video"
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -50,22 +49,31 @@ in
     "discard"
   ];
 
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
   hardware.acpilight.enable = true;
   services.udev.extraRules = ''
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  # hardware.graphics = {
+  #   enable = true;
+  #   enable32Bit = true;
 
-  hardware.amdgpu.amdvlk = {
-    enable = true;
-    support32Bit.enable = true;
+  #   extraPackages = with pkgs; [
+  #     amdvlk
+  #   ];
+  #   extraPackages32 = with pkgs; [
+  #     driversi686Linux.amdvlk
+  #   ];
+  # };
+
+  hardware.amdgpu = {
+    initrd.enable = true;
+    opencl.enable = true;
+
+    amdvlk = {
+      enable = true;
+      support32Bit.enable = true;
+    };
   };
 
   hardware.i2c.enable = true;
