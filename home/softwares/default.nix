@@ -9,6 +9,7 @@
     ./git.nix
     ./direnv.nix
     ./rofi.nix
+    ./wofi.nix
   ];
 
   home.packages = with pkgs; [
