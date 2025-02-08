@@ -31,6 +31,14 @@
     };
   };
 
+  services.clamav = {
+    updater = {
+      enable = true;
+      interval = "hourly";
+    };
+    scanner.enable = true;
+  };
+
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
 
