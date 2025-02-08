@@ -1,4 +1,9 @@
-{ config, pkgs, user, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 
 {
 
@@ -6,6 +11,7 @@
     libsecret
     polkit
     polkit_gnome
+    clamtk
   ];
 
   security.polkit.enable = true;
