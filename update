@@ -11,6 +11,7 @@ if [ -z "${host}" ]; then
     exit 1
 fi
 
+sudo nix-channel --update
 sudo nix flake update
 
 if [ -d .git ]; then
