@@ -1,8 +1,9 @@
-{ inputs
-, config
-, pkgs
-, home-manager
-, ...
+{
+  inputs,
+  config,
+  pkgs,
+  home-manager,
+  ...
 }:
 
 {
