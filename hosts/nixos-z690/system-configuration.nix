@@ -54,17 +54,17 @@ in
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
 
-  # hardware.graphics = {
-  #   enable = true;
-  #   enable32Bit = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
 
-  #   extraPackages = with pkgs; [
-  #     amdvlk
-  #   ];
-  #   extraPackages32 = with pkgs; [
-  #     driversi686Linux.amdvlk
-  #   ];
-  # };
+    extraPackages = with pkgs; [
+      amdvlk
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
+  };
 
   hardware.amdgpu = {
     initrd.enable = true;

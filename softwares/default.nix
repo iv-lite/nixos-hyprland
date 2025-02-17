@@ -75,8 +75,10 @@
       #podman-compose # start group of containers for dev
     ];
 
-    sessionVariables.NIXOS_OZONE_WL = "1";
-    sessionVariables.ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+    };
     variables.EDITOR = "vim";
   };
 
