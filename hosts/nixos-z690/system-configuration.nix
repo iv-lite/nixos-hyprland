@@ -37,7 +37,7 @@ in
     "ddcci_backlight"
   ];
   boot.kernelParams = [
-    "acpi_backlight=video"
+    "acpi_backlight=native"
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -66,15 +66,15 @@ in
     ];
   };
 
-  hardware.amdgpu = {
-    initrd.enable = true;
-    opencl.enable = true;
+  # hardware.amdgpu = {
+  #   initrd.enable = true;
+  #   opencl.enable = true;
 
-    amdvlk = {
-      enable = true;
-      support32Bit.enable = true;
-    };
-  };
+  #   amdvlk = {
+  #     enable = true;
+  #     support32Bit.enable = true;
+  #   };
+  # };
 
   hardware.i2c.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
