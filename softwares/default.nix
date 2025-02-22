@@ -35,7 +35,7 @@
       meson
       cpio
 
-      libsForQt5.qt5ct
+      # libsForQt5.qt5ct
       hyprpaper
       hyprpicker
 
