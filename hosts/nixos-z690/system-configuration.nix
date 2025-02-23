@@ -26,7 +26,7 @@ in
     "sd_mod"
   ];
   boot.initrd.kernelModules = [
-    "amdgpu"
+    # "amdgpu"
   ];
   boot.extraModulePackages = [
     # config.boot.kernelPackages.ddcci-driver
@@ -55,7 +55,6 @@ in
   # '';
 
   # hardware.graphics = {
-  #   package = pkgs-hyprland.mesa.drivers;
   #   enable = true;
   #   enable32Bit = true;
 
