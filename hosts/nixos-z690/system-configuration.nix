@@ -26,15 +26,15 @@ in
     "sd_mod"
   ];
   boot.initrd.kernelModules = [
-    # "amdgpu"
+    "amdgpu"
   ];
   boot.extraModulePackages = [
     # config.boot.kernelPackages.ddcci-driver
   ];
   boot.kernelModules = [
     "kvm-intel"
-    "i2c-dev"
-    "ddcci_backlight"
+    # "i2c-dev"
+    # "ddcci_backlight"
   ];
   boot.kernelParams = [
     "acpi_backlight=native"
@@ -50,31 +50,32 @@ in
   ];
 
   hardware.acpilight.enable = true;
-  services.udev.extraRules = ''
-    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  '';
+  # services.udev.extraRules = ''
+  #   KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  # '';
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  # hardware.graphics = {
+  #   package = pkgs-hyprland.mesa.drivers;
+  #   enable = true;
+  #   enable32Bit = true;
 
-    extraPackages = with pkgs; [
-      amdvlk
-    ];
-    extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
-    ];
-  };
-
-  # hardware.amdgpu = {
-  #   initrd.enable = true;
-  #   opencl.enable = true;
-
-  #   amdvlk = {
-  #     enable = true;
-  #     support32Bit.enable = true;
-  #   };
+  #   extraPackages = with pkgs; [
+  #     amdvlk
+  #   ];
+  #   extraPackages32 = with pkgs; [
+  #     driversi686Linux.amdvlk
+  #   ];
   # };
+
+  hardware.amdgpu = {
+    initrd.enable = true;
+    opencl.enable = true;
+
+    amdvlk = {
+      enable = true;
+      support32Bit.enable = true;
+    };
+  };
 
   hardware.i2c.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
