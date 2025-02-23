@@ -17,7 +17,8 @@
   #   })
   # ];
 
-  environment.systemPackages = [
-    pkgs.legcord
+  environment.systemPackages = with pkgs; [
+    discord
+    legcord
   ];
 }
