@@ -22,7 +22,7 @@
     "pulseaudio",
     "backlight",
     "clock",
-    "network",
+    // "network",
     // "bluetooth",
     "tray",
     "custom/power"
